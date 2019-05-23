@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 class OreillyOrder(models.Model):
-    _name = 'oreilly.order' 
+    _name = "oreilly_parts.order"
     name = fields.Char()
     ident = fields.Char()
     modifiedDateTime = fields.Char()
@@ -18,4 +18,5 @@ class OreillyOrder(models.Model):
     createdDateTime = fields.Char()
     worksheetState = fields.Char()
     totalPrice = fields.Char()
-    empty = fields.Char()
+    empty = fields.Boolean('Empty')
+
