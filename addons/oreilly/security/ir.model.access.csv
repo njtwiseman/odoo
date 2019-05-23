@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_oreilly_oreilly,oreilly.oreilly,model_oreilly_oreilly,,1,1,1,1
+access_oreilly_order,oreilly.order,model_oreilly_order,,1,1,1,1
+access_oreilly_vehicle,oreilly.vehicle,model_oreilly_vehicle,,1,1,1,1
+access_oreilly_update,oreilly.update,model_oreilly_update,,1,1,1,1

@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+	<record model="ir.ui.view" id="oreilly.vehicle_list">
+	  <field name="name">vehicle list</field>
+	  <field name="model">oreilly.vehicle</field>
+	  <field name="arch" type="xml">
+		<tree>
+		  <field name="createDateTime"/>
+		  <field name="my_ident"/>
+		  <field name="epcVehicleYear"/>
+		  <field name="epcVehicleMake"/>
+		  <field name="epcVehicleModel"/>
+		  <field name="vin"/> 
+		  <field name="licensePlate"/>
+		</tree>
+	  </field>
+	</record>
+
+
+
+
+
+  </data>
+</odoo>
+

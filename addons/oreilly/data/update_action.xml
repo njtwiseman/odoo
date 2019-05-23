@@ -1,0 +1,10 @@
+<odoo>
+  <data> 
+	<!--
+	<record model="ir.actions.server" id="action_oreilly_update">
+	  <field name="name">oreilly update</field>
+	  <field name="type">file</field>
+	  </record>
+	-->
+  </data>
+</odoo>

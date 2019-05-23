@@ -1,0 +1,168 @@
+<odoo>
+  <data>
+	<!--
+	<record id="1" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="2" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="3" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="4" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="5" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="6" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="7" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="8" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="9" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="10" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="11" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="12" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="13" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="14" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="15" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="16" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="17" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	</record>
+	<record id="18" model="oreilly.vehicle">
+	  <field name="createDateTime"/>
+	  <field name="epcVehicleYear"/>
+	  <field name="epcVehicleMake"/>
+	  <field name="epcVehicleModel"/>
+	  <field name="vin"/>
+	  <field name="licensePlate"/>
+	  <field name="sourceVinScanner"/>
+	  </record>
+	-->
+  </data>
+</odoo>
