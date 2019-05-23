@@ -1,3 +1,6 @@
+[submodule "addons/oreilly_addon"]
+	path = addons/oreilly_addon
+	url = https://gitlab.com/njtwiseman/oreilly_addon.git
 [submodule "addons/oreilly"]
 	path = addons/oreilly
 	url = https://gitlab.com/njtwiseman/oreilly_addon.git
