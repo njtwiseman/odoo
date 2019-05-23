@@ -20,9 +20,11 @@ class Update(models.Model):
 
         oReillySession = tools.rwdfco.FirstCallOnline()
         oData = oReillySession.getData()
+
+        self.env['oreilly.order']
         
-        self.env['oreilly.vehicle'].create(oData['vehicles'])
-        self.env['oreilly.order'].create(oData['orders'])
+        #self.env['oreilly.vehicle'].create()
+        #self.env['oreilly.order'].create()
         
 
         print("------------- Hello  World")

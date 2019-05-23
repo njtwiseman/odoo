@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-
+from openerp.exceptions import ValidationError
 from odoo import models, fields, api
 
-class order(models.Model):
+class Order(models.Model):
     _name                   = 'oreilly.order'
     _description            = 'an Order from Oreilly Auto Parts Website'
     name                    = fields.Char()
@@ -27,18 +27,19 @@ class order(models.Model):
     totalPrice              = fields.Char()
     empty                   = fields.Boolean('Empty')
     
-    @api.multi
-    @api.constrains('my_ident')
-    def _check_my_ident(self):
-        orderObjects = self.env['oreilly.order']
-        rec = orderObjects.search([('my_ident', '=', self.my_ident)])
-        if rec:
-            raise ValidationError(_('This one exists'))
-        else:
-            print("hi")
-
-        return res
-            
-   
-   
-   
+##    @api.constrains('my_ident')#
+#    def _check_my_ident(self):
+#        orderObjects = self.env['oreilly.order']
+#        for record in self:
+#            records = orderObjects.search([('my_ident','=',record.my_ident)])
+#            if records:
+#                #raise ValidationError(_('This one (%s) exists' % record.my_ident))
+#                print(records)
+#                print("Found one")
+#            else:
+#                print("hi")
+#
+#            
+#   
+#   
+#   
