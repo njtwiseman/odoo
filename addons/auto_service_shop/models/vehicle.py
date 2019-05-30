@@ -44,8 +44,9 @@ class VehicleMake(models.Model):
 
 class VehicleModel(models.Model):
     _name = 'vehicle.model'
-    _rec_name = 'my_model'
-    my_model = fields.Char(string="Model")
+    _rec_name = 'model'
+    model = fields.Char(string="Model")
+    image_medium = fields.Binary(string='image', store=True, attachment=True)
 
 class VehiclePlate(models.Model):
     _name = 'vehicle.plate'

@@ -14,7 +14,7 @@
 	  <field name="code">auto.service</field>
 	  <field name="prefix">SERV/</field>
 	  <field eval="4" name="padding" />
-	  <field eval="False" name="make_make_model_name"/>
+	  <field eval="False" name="vehicle_make"/>
 	  <field name="company_id" eval="False"/>
 	</record>
 
@@ -117,19 +117,23 @@
 				<label for="street" string="Address"/>
 				<div class="o_address_format">
 				  <field name="street" placeholder="Street..." class="o_address_street"/>
+					<!-->
 				  <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+				</!-->
 				  <field name="city" placeholder="City" class="o_address_city"/>
 				  <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
 				  <field name="zip" placeholder="ZIP" class="o_address_zip"/>
+					<!-->
 				  <field name="country_id" placeholder="Country" class="o_address_country"
 					options='{"no_open": True, "no_create": True}'/>
+				</!-->
 				</div>
 			  </group>
 			  <group>
-				<label for="make_name"/>
+				<label for="make"/>
 				<div class="o_row">
-				  <field name="make_name" placeholder="Make name" attrs="{'readonly': [('service_state','not in',('draft'))]}"/>
-				  <field name="make_model_name" placeholder="Model name" attrs="{'readonly': [('service_state','not in',('draft'))]}"/>
+				  <field name="make" placeholder="Make" attrs="{'readonly': [('service_state','not in',('draft'))]}"/>
+				  <field name="model" placeholder="Model" attrs="{'readonly': [('service_state','not in',('draft'))]}"/>
 				</div>
 				<field name="date_request" style="width:50%;" attrs="{'readonly': [('service_state','not in',('draft'))]}"/>
 				<field name="return_date" style="width:50%;" attrs="{'readonly': [('service_state','in',('returned','not_solved'))]}"/>
@@ -196,7 +200,6 @@
 	  <field name="model">auto.service</field>
 	  <field name="arch" type="xml">
 		<kanban class="o_kanban_small_column">
-		  <field name="image_medium"/>
 		  <field name="id"/>
 		  <templates>
 			<t t-name="kanban-box">
@@ -231,7 +234,7 @@
 		  <sheet>
 			<group>
 			  <group>
-				<field name="make_name"/>
+				<field name="make"/>
 			  </group>
 			</group>
 		  </sheet>
@@ -239,17 +242,16 @@
 	  </field>
 	</record>
 
-	<record id="vehicle_make_model_form_view" model="ir.ui.view">
-	  <field name="name">vehicle.make.model.form</field>
-	  <field name="model">make.model</field>
+	<record id="vehicle_model_form_view" model="ir.ui.view">
+	  <field name="name">vehicle.model.form</field>
+	  <field name="model">vehicle.model</field>
 	  <field name="arch" type="xml">
 		<form string="Make Model">
 		  <sheet>
 			<field name="image_medium" widget='image' class="oe_avatar"/>
 			<group>
 			  <group>
-				<field name="make_name"/>
-				<field name="make_model_name"/>
+				<field name="model"/>
 			  </group>
 			</group>
 		  </sheet>
@@ -258,9 +260,9 @@
 	</record>
 
 
-	<record id="vehicle_make_model_view_kanban" model="ir.ui.view">
+	<record id="vehicle_model_view_kanban" model="ir.ui.view">
 	  <field name="name">auto.service.kanban.view</field>
-	  <field name="model">make.model</field>
+	  <field name="model">vehicle.model</field>
 	  <field name="arch" type="xml">
 		<kanban class="o_kanban_small_column">
 		  <field name="image_medium"/>
@@ -269,14 +271,14 @@
 			<t t-name="kanban-box">
 			  <div class="oe_kanban_card oe_kanban_global_click">
 				<div class="o_kanban_image">
-				  <img t-att-src="kanban_image('make.model', 'image_medium', record.id.value)"/>
+				  <img t-att-src="kanban_image('vehicle.model', 'image_medium', record.id.value)"/>
 				</div>
 				<div class="oe_kanban_content">
 				  <div>
-					<strong class="o_kanban_record_title"><h4><field name="make_model_name"/></h4></strong>
+					<strong class="o_kanban_record_title"><h4><field name="model"/></h4></strong>
 				  </div>
 				  <div class="text-muted o_kanban_record_subtitle">
-					<h6><field name="make_model_name"/><br/></h6>
+					<h6><field name="model"/><br/></h6>
 				  </div>
 
 				</div>
@@ -339,18 +341,17 @@
 	  <field name="model">vehicle.make</field>
 	  <field name="arch" type="xml">
 		<tree>
-		  <field name="make_name"/>
+		  <field name="make"/>
 		</tree>
 	  </field>
 	</record>
 
-	<record id="vehicle_make_model_tree_view" model="ir.ui.view">
-	  <field name="name">vehicle.make.model.tree</field>
-	  <field name="model">make.model</field>
+	<record id="vehicle_model_tree_view" model="ir.ui.view">
+	  <field name="name">vehicle.model.tree</field>
+	  <field name="model">vehicle.model</field>
 	  <field name="arch" type="xml">
 		<tree>
-		  <field name="make_name"/>
-		  <field name="make_model_name"/>
+		  <field name="model"/>
 		  <field name="image_medium" widget='image' class="Your_custom_class"/>
 		</tree>
 	  </field>
@@ -409,8 +410,8 @@
 		<field name="name"/>
 		<field name="person_name"/>
 		<field name="contact_no"/>
-		<field name="make_name"/>
-		<field name="make_model_name"/>
+		<field name="make"/>
+		<field name="model"/>
 		  <!--<field name="imei_no"/>-->
 		  <field name="image_medium" widget='image' class="Your_custom_class"/>
 		  <field name="technicion_name"/>
@@ -488,12 +489,12 @@
 
 	</record>
 
-	<record id="action_vehicle_make_models" model="ir.actions.act_window">
+	<record id="action_vehicle_models" model="ir.actions.act_window">
 	  <field name="name">Models</field>
-	  <field name="res_model">make.model</field>
+	  <field name="res_model">vehicle.model</field>
 	  <field name="view_type">form</field>
 	  <field name="view_mode">kanban,tree,form</field>
-	  <field name="rental_view_id" ref="vehicle_make_model_form_view"/>
+	  <field name="rental_view_id" ref="vehicle_model_form_view"/>
 	  <field name="help" type="html">
 		<p class="oe_view_nocontent_create">
 			Click to Create a New Record.
@@ -508,10 +509,12 @@
 	  <field name="inherit_id" ref="product.product_template_kanban_view"/>
 	  <field name="arch" type="xml">
 		<xpath expr="//kanban/templates/t/div/div[@class='oe_kanban_details']/strong[1]/field[@name='name']" position="after">
+		  <!-->
 		  <strong>
-			<field name="make_name"/>
-			<field name="make_model_name"/>
+			<field name="make"/>
+			<field name="model"/>
 		  </strong>
+		</!-->
 		</xpath>
 	  </field>
 	</record>
@@ -530,8 +533,8 @@
 			<!-->
 			<group>
 			  <group>
-				<field name="make_name" attrs="{'required': [('is_a_parts', '=', True)]}"/>
-				<field name="make_model_name" attrs="{'required': [('is_a_parts', '=', True)]}"/>
+				<field name="make" attrs="{'required': [('is_a_parts', '=', True)]}"/>
+				<field name="model" attrs="{'required': [('is_a_parts', '=', True)]}"/>
 			  </group>
 			  <group>
 				<field name="model_colour"/>
@@ -586,7 +589,7 @@
 	<menuitem action="action_auto_complaint_template" id="auto_service_shop_conf6" parent="auto_service_shop_configuration"
 	  name="Complaint Templates" sequence="3"/>
 
-	<menuitem action="action_vehicle_make_models" id="auto_service_shop_conf3" parent="auto_service_shop_configuration"
+	<menuitem action="action_vehicle_models" id="auto_service_shop_conf3" parent="auto_service_shop_configuration"
 	  name="Models" sequence="2"/>
 
 	<menuitem action="action_auto_terms_and_conditions" id="auto_service_shop_conf5" parent="auto_service_shop_configuration"

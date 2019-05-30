@@ -29,7 +29,7 @@ class AutoServiceShop(models.Model):
     # vehicle info
     vehicle = fields.Many2one('vehicle.vehicle')
     make = fields.Char(related='vehicle.make.make', string="Make", store=True)
-    my_model = fields.Char(related='vehicle.model.my_model', string="Model")
+    model = fields.Char(related='vehicle.model.model', string="Model")
 
     is_in_warranty = fields.Boolean(
         'In Warranty', default=False,
@@ -44,7 +44,7 @@ class AutoServiceShop(models.Model):
     imei_no = fields.Char(string="IMEI Number")
 
     # this seems to be a problematic line
-    image_medium = fields.Binary(string="Image", attachment=True)
+    image_medium = fields.Binary(string="Image", store=True, attachment=True)
     date_request = fields.Date(string="Requested date", default=fields.Date.context_today)
     return_date = fields.Date(string="Return date", required=True)
     technicion_name = fields.Many2one('res.users', string="Technician Name",
@@ -310,8 +310,8 @@ class AutoServiceShop(models.Model):
             'technician': self.technicion_name.name,
             'complaint_types': complaint_text,
             'complaint_description': description_text,
-            'make_name': self.make_name,
-            'make_model_name': self.make_model_name,
+            'make': self.make,
+            'model': self.model,
 
         }
         return self.env.ref('auto_service_shop.auto_service_ticket').report_action(self, data=data)
