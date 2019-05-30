@@ -47,7 +47,7 @@ class VehicleModel(models.Model):
     _rec_name = 'make_model_name'
     make_name = fields.Many2one('vehicle.make', string="Make")#, required=True)
     make_model_name = fields.Char(string="Model Name")#, required=True)
-    image_medium = fields.Binary(string='image', store=True, attachment=True)
+    image_medium = fields.Binary(string='image')
 
 
 class VehiclePlate(models.Model):

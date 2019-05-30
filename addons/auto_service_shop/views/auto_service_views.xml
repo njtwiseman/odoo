@@ -509,10 +509,8 @@
 	  <field name="arch" type="xml">
 		<xpath expr="//kanban/templates/t/div/div[@class='oe_kanban_details']/strong[1]/field[@name='name']" position="after">
 		  <strong>
-			<!-->
 			<field name="make_name"/>
 			<field name="make_model_name"/>
-		  </!-->
 		  </strong>
 		</xpath>
 	  </field>

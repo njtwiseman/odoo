@@ -25,7 +25,7 @@ class AutoServiceShop(models.Model):
     country_id = fields.Many2one(related='person_name.country_id', string="Address")
 
     make_name = fields.Many2one('vehicle.make', string="Make")
-    make_model_name = fields.Many2one('make.model', string="Model")
+    make_model_name = fields.Many2one('make.model', string="Model", domain="[('vehicle.make','=',make_name)]")
     # model_name = fields.Many2one('make.model', string="Model", domain="[('auto_brand_name','=',brand_name)]")
 
     is_in_warranty = fields.Boolean(
@@ -41,7 +41,7 @@ class AutoServiceShop(models.Model):
     imei_no = fields.Char(string="IMEI Number")
 
     # this seems to be a problematic line
-    image_medium = fields.Binary(related='make_model_name.image_medium', store=True, attachment=True)
+    image_medium = fields.Binary(string="Image")
     date_request = fields.Date(string="Requested date", default=fields.Date.context_today)
     return_date = fields.Date(string="Return date", required=True)
     technicion_name = fields.Many2one('res.users', string="Technician Name",
