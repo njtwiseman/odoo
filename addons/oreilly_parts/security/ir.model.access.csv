@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_oreilly_parts_order,oreilly_parts.oreilly_parts,model_oreilly_parts_order,,1,0,0,0
