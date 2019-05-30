@@ -13,7 +13,7 @@ class StockMoveReport(models.AbstractModel):
             'date_request': data['date_request'],
             'date_return': data['date_return'],
             'sev_id': data['sev_id'],
-            'imei_no': data['imei_no'],
+            #'imei_no': data['imei_no'],
             'technician': data['technician'],
             'complaint_types': data['complaint_types'],
             'complaint_description': data['complaint_description'],

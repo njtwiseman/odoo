@@ -7,9 +7,9 @@ from odoo import api, fields, models, _
 from odoo.exceptions import Warning, UserError
 
 
-class MobileServiceInvoice(models.Model):
+class AutoServiceInvoice(models.Model):
 
-    _name = 'mobile.invoice'
+    _name = 'auto.invoice'
 
     advance_payment_method = fields.Selection([('advance', 'Advance'), ('full_amount', 'Full amount')],
                                               string='Invoice method', default='advance')
@@ -19,12 +19,12 @@ class MobileServiceInvoice(models.Model):
     @api.multi
     def action_invoice_create(self):
         active_id = self._context.get('active_id')
-        service_id = self.env['mobile.service'].search([('id', '=', active_id)])
-        if not service_id.env['product.product'].search([("name", "=", "Mobile Service Advance")]):
+        service_id = self.env['auto.service'].search([('id', '=', active_id)])
+        if not service_id.env['product.product'].search([("name", "=", "Auto Service Advance")]):
             vals = self._prepare_advance_product()
             self.env['product.product'].create(vals)
 
-        if not service_id.env['product.product'].search([("name", "=", "Mobile Service Charge")]):
+        if not service_id.env['product.product'].search([("name", "=", "Auto Service Charge")]):
             vals1 = self._prepare_service_product()
             self.env['product.product'].create(vals1)
 
@@ -48,9 +48,9 @@ class MobileServiceInvoice(models.Model):
         service_id.first_payment_inv = inv_id.id
         self.number = service_id.name
         if self.advance_payment_method != 'advance':
-            product_id = service_id.env['product.product'].search([("name", "=", "Mobile Service Charge")])
+            product_id = service_id.env['product.product'].search([("name", "=", "Auto Service Charge")])
         else:
-            product_id = service_id.env['product.product'].search([("name", "=", "Mobile Service Advance")])
+            product_id = service_id.env['product.product'].search([("name", "=", "Auto Service Advance")])
 
         if product_id.property_account_income_id.id:
             income_account = product_id.property_account_income_id.id
@@ -121,7 +121,7 @@ class MobileServiceInvoice(models.Model):
 
     def _prepare_advance_product(self):
         return {
-            'name': 'Mobile Service Advance',
+            'name': 'Auto Service Advance',
             'type': 'service',
             'invoice_policy': 'order',
             'company_id': False,
@@ -129,7 +129,7 @@ class MobileServiceInvoice(models.Model):
 
     def _prepare_service_product(self):
         return {
-            'name': 'Mobile Service Charge',
+            'name': 'Auto Service Charge',
             'type': 'service',
             'invoice_policy': 'order',
             'company_id': False,

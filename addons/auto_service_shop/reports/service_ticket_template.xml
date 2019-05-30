@@ -55,7 +55,7 @@
                                 <td>1</td>
                                 <td><t t-esc="auto_brand"/></td>
                                 <td><t t-esc="model_name"/></td>
-                                <td><t t-esc="imei_no"/></td>
+								  <!--<td><t t-esc="imei_no"/></td>-->
                                 <td><t t-esc="complaint_types"/></td>
                                 <td><t t-esc="complaint_description"/></td>
                             </tr>

@@ -4,15 +4,17 @@ from odoo.exceptions import Warning, UserError
 import pytz
 
 
-class MobileServiceShop(models.Model):
+class AutoServiceShop(models.Model):
     _name = 'auto.service'
     _rec_name = 'name'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(string='Service Number', copy=False, default="New")
+    
+    # customer info
     person_name = fields.Many2one('res.partner', string="Customer Name", required=True,
                                   domain="[('customer','=','True')]")
-    contact_no = fields.Char(related='person_name.auto', string="Contact Number")
+    contact_no = fields.Char(related='person_name.mobile', string="Contact Number")
     email_id = fields.Char(related='person_name.email', string="Email")
 
     street = fields.Char(related='person_name.street', string="Address")
@@ -22,7 +24,10 @@ class MobileServiceShop(models.Model):
     zip = fields.Char(related='person_name.zip', string="Address")
     country_id = fields.Many2one(related='person_name.country_id', string="Address")
 
-    brand_name = fields.Many2one('auto.brand', string="Mobile Brand")
+    make_name = fields.Many2one('vehicle.make', string="Make")
+    make_model_name = fields.Many2one('make.model', string="Model")
+    # model_name = fields.Many2one('make.model', string="Model", domain="[('auto_brand_name','=',brand_name)]")
+
     is_in_warranty = fields.Boolean(
         'In Warranty', default=False,
         help="Specify if the product is in warranty.")
@@ -35,8 +40,8 @@ class MobileServiceShop(models.Model):
 
     imei_no = fields.Char(string="IMEI Number")
 
-    model_name = fields.Many2one('brand.model', string="Model", domain="[('auto_brand_name','=',brand_name)]")
-    image_medium = fields.Binary(related='model_name.image_medium', store=True, attachment=True)
+    # this seems to be a problematic line
+    image_medium = fields.Binary(related='make_model_name.image_medium', store=True, attachment=True)
     date_request = fields.Date(string="Requested date", default=fields.Date.context_today)
     return_date = fields.Date(string="Return date", required=True)
     technicion_name = fields.Many2one('res.users', string="Technician Name",
@@ -185,14 +190,14 @@ class MobileServiceShop(models.Model):
         else:
             vals['name'] = self.env['ir.sequence'].next_by_code('auto.service') or _('New')
         vals['service_state'] = 'draft'
-        return super(MobileServiceShop, self).create(vals)
+        return super(AutoServiceShop, self).create(vals)
 
     @api.multi
     def unlink(self):
         for i in self:
             if i.service_state != 'draft':
                 raise UserError(_('You cannot delete an assigned service request'))
-        return super(MobileServiceShop, self).unlink()
+        return super(AutoServiceShop, self).unlink()
 
     @api.multi
     def action_invoice_create_wizard(self):
@@ -302,28 +307,24 @@ class MobileServiceShop(models.Model):
             'technician': self.technicion_name.name,
             'complaint_types': complaint_text,
             'complaint_description': description_text,
-            'auto_brand': self.brand_name.brand_name,
-            'model_name': self.model_name.auto_brand_models,
+            'make_name': self.make_name,
+            'make_model_name': self.make_model_name,
 
         }
         return self.env.ref('auto_service_shop.auto_service_ticket').report_action(self, data=data)
 
 
-class MobileBrand(models.Model):
-    _name = 'auto.brand'
-    _rec_name = 'brand_name'
-
-    brand_name = fields.Char(string="Mobile Brand", required=True)
 
 
-class MobileComplaintType(models.Model):
+# Repair Info #
+class AutoComplaintType(models.Model):
     _name = 'auto.complaint'
     _rec_name = 'complaint_type'
 
     complaint_type = fields.Char(string="Complaint Type", required=True)
 
 
-class MobileComplaintTypeTemplate(models.Model):
+class AutoComplaintTypeTemplate(models.Model):
     _name = 'auto.complaint.description'
     _rec_name = 'description'
 
@@ -331,7 +332,7 @@ class MobileComplaintTypeTemplate(models.Model):
     description = fields.Text(string="Complaint Description")
 
 
-class MobileComplaintTree(models.Model):
+class AutoComplaintTree(models.Model):
     _name = 'auto.complaint.tree'
     _rec_name = 'complaint_type_tree'
 
@@ -341,20 +342,22 @@ class MobileComplaintTree(models.Model):
     description_tree = fields.Many2one('auto.complaint.description', string="Description",
                                        domain="[('complaint_type_template','=',complaint_type_tree)]")
 
-
-class MobileBrandModels(models.Model):
+# Vehicle Info #
+class AutoBrandModels(models.Model):
     _name = 'brand.model'
     _rec_name = 'auto_brand_models'
-
-    auto_brand_name = fields.Many2one('auto.brand', string="Mobile Brand", required=True)
+    auto_brand_name = fields.Many2one('auto.brand', string="Auto Brand", required=True)
     auto_brand_models = fields.Char(string="Model Name", required=True)
     image_medium = fields.Binary(string='image', store=True, attachment=True)
 
+class AutoBrand(models.Model):
+    _name = 'auto.brand'
+    _rec_name = 'brand_name'
+    brand_name = fields.Char(string="Auto Brand", required=True)
 
-class MobileServiceTermsAndConditions(models.Model):
+class AutoServiceTermsAndConditions(models.Model):
     _name = 'terms.conditions'
     _rec_name = 'terms_id'
-
     terms_id = fields.Char(String="Terms and condition", compute="_find_id")
     terms_conditions = fields.Text(string="Terms and Conditions")
 
@@ -366,7 +369,7 @@ class ProductProduct(models.Model):
     _inherit = 'product.template'
 
     is_a_parts = fields.Boolean(
-        'Is a Mobile Part', default=False,
+        'Is a Auto Part', default=False,
         help="Specify if the product is a auto part or not.")
 
     brand_name = fields.Many2one('auto.brand', String="Brand", help="Select a auto brand for the part")

@@ -2,12 +2,12 @@
 <odoo>
 
     <record id="auto_service_execute" model="ir.module.category">
-        <field name="name">Mobile Service</field>
+        <field name="name">Auto Service</field>
         <field name="sequence">5</field>
     </record>
 
     <record id="auto_service_group_executer" model="res.groups">
-        <field name="name">Mobile Technician</field>
+        <field name="name">Auto Technician</field>
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
         <field name="category_id" ref="auto_service_execute"/>
     </record>
@@ -20,14 +20,14 @@
     </record>
 
     <record id="auto_service_tech_rules" model="ir.rule">
-        <field name="name">Mobile Service rule</field>
+        <field name="name">Auto Service rule</field>
         <field name="model_id" ref="model_auto_service" />
         <field name="domain_force">[('technicion_name','=',user.id),('service_state','!=','draft'), ('company_id','=',user.company_id.id)]</field>
         <field name="groups" eval="[(4,ref('auto_service_group_executer'))]"/>
     </record>
 
     <record id="auto_service_rule_manager" model="ir.rule">
-        <field name="name">Mobile Service Manager rule</field>
+        <field name="name">Auto Service Manager rule</field>
         <field name="model_id" ref="model_auto_service" />
         <field name="domain_force">[('company_id','=',user.company_id.id)]</field>
         <field name="groups" eval="[(4,ref('auto_service_group_manager'))]"/>
