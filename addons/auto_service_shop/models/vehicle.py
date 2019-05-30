@@ -13,7 +13,7 @@ class Vehicle(models.Model):
     # relational fields
     year    = fields.Many2one('vehicle.year', string="year")
     make    = fields.Many2one('vehicle.make', string="make")
-    model   = fields.Many2one('vehicle.make.model', string="model")
+    model   = fields.Many2one('vehicle.model', string="model")
 
     @api.depends('vin')
     def _compute_vin_6(self):
@@ -29,26 +29,23 @@ class VehicleVin(models.Model):
     _name = 'vehicle.vin'
     _description = 'Vehicle Identification Number'
     _rec_name = 'vin'
-    vin = fields.Char(required=True)
+    vin = fields.Char(string='VIN')
 
 class VehicleYear(models.Model):
     _name = 'vehicle.year'
     _description = 'Vehicle Model Year  - not a build date'
-    _rec_name = 'vehicle_year'
-    vehicle_year = fields.Char(string="Vehicle Year")#, required=True)
+    _rec_name = 'year'
+    year = fields.Char(string="Year")
 
 class VehicleMake(models.Model):
     _name = 'vehicle.make'
-    _rec_name = 'make_name'
-    make_name = fields.Char(string="Vehicle Make")#, required=True)
+    _rec_name = 'make'
+    make = fields.Char(string="Make")
 
 class VehicleModel(models.Model):
-    _name = 'make.model'
-    _rec_name = 'make_model_name'
-    make_name = fields.Many2one('vehicle.make', string="Make")#, required=True)
-    make_model_name = fields.Char(string="Model Name")#, required=True)
-    image_medium = fields.Binary(string='image')
-
+    _name = 'vehicle.model'
+    _rec_name = 'my_model'
+    my_model = fields.Char(string="Model")
 
 class VehiclePlate(models.Model):
     _name = 'vehicle.plate'

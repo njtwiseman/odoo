@@ -8,25 +8,28 @@ class AutoServiceShop(models.Model):
     _name = 'auto.service'
     _rec_name = 'name'
     _inherit = ['mail.thread', 'mail.activity.mixin']
-
     name = fields.Char(string='Service Number', copy=False, default="New")
     
     # customer info
-    person_name = fields.Many2one('res.partner', string="Customer Name", required=True,
-                                  domain="[('customer','=','True')]")
+    person_name = fields.Many2one('res.partner', 
+            string="Customer Name", 
+            required=True,
+            domain="[('customer','=','True')]")
     contact_no = fields.Char(related='person_name.mobile', string="Contact Number")
     email_id = fields.Char(related='person_name.email', string="Email")
+    street = fields.Char(related='person_name.street', string="Street")
+    city = fields.Char(related='person_name.city', string="City")
+    state_id = fields.Many2one(related='person_name.state_id', string="State")
+    zip = fields.Char(related='person_name.zip', string="Zip")
 
-    street = fields.Char(related='person_name.street', string="Address")
-    street2 = fields.Char(related='person_name.street2', string="Address")
-    city = fields.Char(related='person_name.city', string="Address")
-    state_id = fields.Many2one(related='person_name.state_id', string="Address")
-    zip = fields.Char(related='person_name.zip', string="Address")
-    country_id = fields.Many2one(related='person_name.country_id', string="Address")
+    #country_id = fields.Many2one(related='person_name.country_id', string="Country")
+    #street2 = fields.Char(related='person_name.street2', string="Address")
 
-    make_name = fields.Many2one('vehicle.make', string="Make")
-    make_model_name = fields.Many2one('make.model', string="Model", domain="[('vehicle.make','=',make_name)]")
-    # model_name = fields.Many2one('make.model', string="Model", domain="[('auto_brand_name','=',brand_name)]")
+    
+    # vehicle info
+    vehicle = fields.Many2one('vehicle.vehicle')
+    make = fields.Char(related='vehicle.make.make', string="Make", store=True)
+    my_model = fields.Char(related='vehicle.model.my_model', string="Model")
 
     is_in_warranty = fields.Boolean(
         'In Warranty', default=False,
@@ -41,7 +44,7 @@ class AutoServiceShop(models.Model):
     imei_no = fields.Char(string="IMEI Number")
 
     # this seems to be a problematic line
-    image_medium = fields.Binary(string="Image")
+    image_medium = fields.Binary(string="Image", attachment=True)
     date_request = fields.Date(string="Requested date", default=fields.Date.context_today)
     return_date = fields.Date(string="Return date", required=True)
     technicion_name = fields.Many2one('res.users', string="Technician Name",
