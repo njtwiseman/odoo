@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="1">
+        <record model="account.journal" id="auto_service_journal">
+            <field name="name">Auto Service</field>
+            <field name="type">sale</field>
+            <field name="code">SERV</field>
+            <field name="active">TRUE</field>
+        </record>
+        <record model="product.template" id="auto_service_product">
+            <field name="name">Auto Service Charge</field>
+            <field name="type">service</field>
+            <field name="invoice_policy">order</field>
+        </record>
+        <record model="product.template" id="auto_service_advance_product">
+            <field name="name">Auto Service Advance</field>
+            <field name="type">service</field>
+            <field name="invoice_policy">order</field>
+        </record>
+
+    </data>
+
+</odoo>

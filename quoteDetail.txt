@@ -1,0 +1,1121 @@
+
+    var quote = (quote || {});
+
+    quote.data = {"worksheetForm":
+ {"headerId":
+364445626, "worksheetOrigin":
+"WEB","poNumber":
+null,"returnsWaiting":
+false,"submitType":
+null,"description":
+null,"serviceNotes":
+null,"specialInstructions":
+"","customerRepairOrderNumber":
+null,"delivery":
+true,"cash":
+false,"changeVehicleId":
+null,"orderSubmittedDateTime":
+1558740592000,"subtotalShopCost":
+109.5900,"subtotalPrice":
+150.1300,"subtotalPricePart":
+150.1300,"subtotalPriceLabor":
+0,"subtotalPriceOther":
+0,"taxSubtotal":
+9.0078000000,"totalCostOrder":
+84.99,"subtotalCost":
+109.5900,"totalPrice":
+159.1378000000,"totalSavingsCost":
+24.6000,"promotion":
+null,"invoiceLocation":
+null,"invoiceLocations":
+null,"formattedSubtotalShopCost":
+"$109.59","formattedSubtotalPricePart":
+"$150.13","formattedSubtotalPriceLabor":
+"$0.00","formattedSubtotalPriceOther":
+"$0.00","formattedZero":
+"$0.00","formattedTaxSubtotal":
+"$9.01","formattedTotalCostOrder":
+"$84.99","formattedSubtotalPrice":
+"$150.13","formattedSubtotalCost":
+"$109.59","formattedTotalPrice":
+"$159.14","formattedTotalCostSavings":
+"$24.60"},"modifiedByUser":
+{"dateTimeFormatted":
+"05/24 06:
+29 PM","dateTime":
+1558740592000,"emailAddress":
+"njtwiseman@gmail.com","userName":
+"njtwiseman","firstName":
+"Nicholas","lastName":
+"Wiseman","userId":
+303031},"createdByUser":
+{"dateTimeFormatted":
+"05/24 06:
+28 PM","dateTime":
+1558740492000,"emailAddress":
+"njtwiseman@gmail.com","userName":
+"njtwiseman","firstName":
+"Nicholas","lastName":
+"Wiseman","userId":
+303031},"vehicleList":
+[{"id":
+714644068,"shopVehicleDescriptor":
+"2011 Honda Accord","vehicleFleetId":
+"","shopVehicleEngine":
+"SE L4 - 2.4L 2351cc GAS MFI type K24Z2 - 4 valve DOHC","vehicleId":
+96777,"garageBayId":
+null,"noVehicleRecord":
+false,"containsUnknownFitments":
+false,"vin":
+"1HGCP2F61BA139214","shopCustomerInfoDto":
+null,"worksheetDetailSIDs":
+[{"id":
+222028072,"itemDescription":
+"BrakeBest Brake Pads BrakeBest Select Brake Pads Disc Brake Pad Set","itemQuantity":
+1,"customerPrice":
+61.91,"itemType":
+"PART","itemOrder":
+true,"itemOrigin":
+"CATALOG","displayKey":
+"worksheet.part","itemNumber":
+"SC1451","itemOriginDetails":
+"03351","analyticsCategory":
+"Brake Pads","line":
+"BB2","costUnavailable":
+false,"itemStatusUnknown":
+false,"priceExtended":
+61.9100,"costExtended":
+45.1900,"itemCost":
+45.19,"coreCharge":
+0.00,"partAvailabilityList":
+[{"storeNumber":
+0,"locationNumber":
+3829,"locationType":
+"STORE","locationIsDefault":
+null,"locationPriority":
+0,"quantityOnHand":
+1,"productKey":
+null,"lineNumber":
+null,"lineItem":
+{"productKey":
+null,"qtyRequested":
+null,"lineNumber":
+null}}],"unsourcedQuantity":
+0,"worksheetKit":
+{"worksheetKitId":
+2476363,"origin":
+"WIZARD","appended":
+false,"kitType":
+"BRAKE","customerPrice":
+116.44,"itemCost":
+84.99,"listPrice":
+203.35,"promoType":
+"FIXED_PRICE_BY_ITEM","warranty":
+false,"isOrderValid":
+true,"totalSavingsCost":
+24.6000,"formattedSavingsCost":
+"$24.60","formattedItemCost":
+"$84.99"},"hasPromo":
+true,"warningMessage":
+null,"extendedCostCoreCharge":
+0.0000,"formattedExtendedCoreCharge":
+"$0.00","formattedCoreCharge":
+"$0.00","showDefaultAvailability":
+true,"formattedItemCost":
+"$45.19","formattedPriceExtended":
+"$61.91","formattedCostExtended":
+"$45.19","formattedCustomerPrice":
+"$61.91"},{"id":
+222028069,"itemDescription":
+"BrakeBest Select Drum/Rotor/Hub Brake Rotor","itemQuantity":
+2,"customerPrice":
+44.11,"itemType":
+"PART","itemOrder":
+true,"itemOrigin":
+"CATALOG","displayKey":
+"worksheet.part","itemNumber":
+"980577RGS","itemOriginDetails":
+"01310","analyticsCategory":
+"Brake Rotor","line":
+"BBR","costUnavailable":
+false,"itemStatusUnknown":
+false,"priceExtended":
+88.2200,"costExtended":
+64.4000,"itemCost":
+32.20,"coreCharge":
+0.00,"partAvailabilityList":
+[{"storeNumber":
+0,"locationNumber":
+3829,"locationType":
+"STORE","locationIsDefault":
+null,"locationPriority":
+0,"quantityOnHand":
+2,"productKey":
+null,"lineNumber":
+null,"lineItem":
+{"productKey":
+null,"qtyRequested":
+null,"lineNumber":
+null}}],"unsourcedQuantity":
+0,"worksheetKit":
+{"worksheetKitId":
+2476363,"origin":
+"WIZARD","appended":
+false,"kitType":
+"BRAKE","customerPrice":
+116.44,"itemCost":
+84.99,"listPrice":
+203.35,"promoType":
+"FIXED_PRICE_BY_ITEM","warranty":
+false,"isOrderValid":
+true,"totalSavingsCost":
+24.6000,"formattedSavingsCost":
+"$24.60","formattedItemCost":
+"$84.99"},"hasPromo":
+true,"warningMessage":
+null,"extendedCostCoreCharge":
+0.0000,"formattedExtendedCoreCharge":
+"$0.00","formattedCoreCharge":
+"$0.00","showDefaultAvailability":
+true,"formattedItemCost":
+"$32.20","formattedPriceExtended":
+"$88.22","formattedCostExtended":
+"$64.40","formattedCustomerPrice":
+"$44.11"}]},{"id":
+714644065,"shopVehicleDescriptor":
+"No Vehicle","vehicleFleetId":
+"","shopVehicleEngine":
+"","vehicleId":
+null,"garageBayId":
+null,"noVehicleRecord":
+true,"containsUnknownFitments":
+false,"vin":
+null,"shopCustomerInfoDto":
+null,"worksheetDetailSIDs":
+[]}],"currentVehicleId":
+null,"currentShop":
+{"shopAddress":
+{"street1":
+"1990 S Carpenter Lp Rd","street2":
+"","city":
+"Post FAlls","state":
+"ID","zip":
+"83854","flatAddress":
+"1990 S Carpenter Lp Rd  Post FAlls ID 83854","completeAddress":
+true,"notEmpty":
+true},"laborRate":
+75.00,"taxRateLabor":
+0.000000,"taxRateParts":
+0.060000,"company":
+{"demo":
+false,"address":
+{"street1":
+"1990 S Carpenter Lp Rd","street2":
+"","city":
+"Post FAlls","state":
+"ID","zip":
+"83854","flatAddress":
+"1990 S Carpenter Lp Rd  Post FAlls ID 83854","completeAddress":
+true,"notEmpty":
+true},"companyPreference":
+{"garageBayIdVisible":
+false,"garageBayIdRequired":
+false,"vehicleFleetIdVisible":
+false,"vehicleFleetIdRequired":
+false,"poVisible":
+true,"poRequired":
+false,"companyId":
+136062,"id":
+136062,"poValidationMask":
+null},"accountStatus":
+"ACTIVE","shopRequests":
+[],"id":
+136051,"shopIds":
+null,"accountName":
+"Franks Tire And Repair LLC","arGroupCode":
+"1"},"shopCustomers":
+[17644,17671,17674,17680,17734,17743,17920,17926,18058,18145,18175,18442,18601,18859,20077,20080,20086,20263,20308,20458,20500,20563,20626,20701,21103,21322,39962,40253,40466,40775,41099,43035],"id":
+138584,"arAccountNumber":
+2157702,"activeDevices":
+[{"id":
+22314,"mobileIdentifier":
+"00000000-3cf7-9d13-0000-000006938d90","mobilePlatform":
+"Android","active":
+false},{"id":
+32324,"mobileIdentifier":
+"ffffffff-83e8-37f5-ffff-ffffa33f963a","mobilePlatform":
+"Android","active":
+false},{"id":
+33404,"mobileIdentifier":
+"ffffffff-842f-a691-0000-000065b66920","mobilePlatform":
+"Android","active":
+false}],"devices":
+[{"id":
+22314,"mobileIdentifier":
+"00000000-3cf7-9d13-0000-000006938d90","mobilePlatform":
+"Android","active":
+true},{"id":
+32324,"mobileIdentifier":
+"ffffffff-83e8-37f5-ffff-ffffa33f963a","mobilePlatform":
+"Android","active":
+true},{"id":
+33404,"mobileIdentifier":
+"ffffffff-842f-a691-0000-000065b66920","mobilePlatform":
+"Android","active":
+true}],"deviceAssociations":
+[{"active":
+true,"device":
+{"id":
+32324,"mobileIdentifier":
+"ffffffff-83e8-37f5-ffff-ffffa33f963a","mobilePlatform":
+"Android","active":
+false},"shopId":
+138584},{"active":
+true,"device":
+{"id":
+22314,"mobileIdentifier":
+"00000000-3cf7-9d13-0000-000006938d90","mobilePlatform":
+"Android","active":
+false},"shopId":
+138584},{"active":
+true,"device":
+{"id":
+33404,"mobileIdentifier":
+"ffffffff-842f-a691-0000-000065b66920","mobilePlatform":
+"Android","active":
+false},"shopId":
+138584}],"shopPreference":
+{"garageBayIdVisible":
+false,"garageBayIdRequired":
+false,"vehicleFleetIdVisible":
+false,"vehicleFleetIdRequired":
+false,"poVisible":
+true,"poRequired":
+false,"motorData":
+true,"partsPayoffEligible":
+true,"pricingTypeModification":
+0.3700,"id":
+138584,"pricingMethod":
+"USE_PERCENTAGE","pricingType":
+"PERCENT_OVER_COST","pricingMatrix":
+[],"shopLogo":
+"","poValidationMask":
+""},"shopStatus":
+"ACTIVE","packages":
+[{"id":
+776664,"partTypes":
+[{"id":
+2427272,"packageJobId":
+776664,"brands":
+[],"parentPartTypeId":
+"C0007","platformId":
+"05","partTypeId":
+"03309","description":
+null,"brandsAvailable":
+[]},{"id":
+2427275,"packageJobId":
+776664,"brands":
+[],"parentPartTypeId":
+"C0007","platformId":
+"05","partTypeId":
+"01358","description":
+null,"brandsAvailable":
+[]},{"id":
+2427273,"packageJobId":
+776664,"brands":
+[],"parentPartTypeId":
+"C0007","platformId":
+"05","partTypeId":
+"03308","description":
+null,"brandsAvailable":
+[]},{"id":
+2427274,"packageJobId":
+776664,"brands":
+[],"parentPartTypeId":
+"C0007","platformId":
+"05","partTypeId":
+"03306","description":
+null,"brandsAvailable":
+[]}],"name":
+"Example - Belts and Hoses","packageSelected":
+false},{"id":
+776665,"partTypes":
+[{"id":
+2427278,"packageJobId":
+776665,"brands":
+[],"parentPartTypeId":
+"C0009","platformId":
+"05","partTypeId":
+"C0062","description":
+null,"brandsAvailable":
+[]},{"id":
+2427277,"packageJobId":
+776665,"brands":
+[],"parentPartTypeId":
+"C0068","platformId":
+"05","partTypeId":
+"03353","description":
+null,"brandsAvailable":
+[]},{"id":
+2427276,"packageJobId":
+776665,"brands":
+[],"parentPartTypeId":
+"C0068","platformId":
+"05","partTypeId":
+"03351","description":
+null,"brandsAvailable":
+[]}],"name":
+"Example - Brake Job","packageSelected":
+false},{"id":
+776666,"partTypes":
+[{"id":
+2427280,"packageJobId":
+776666,"brands":
+[],"parentPartTypeId":
+"C0023","platformId":
+"05","partTypeId":
+"02269","description":
+null,"brandsAvailable":
+[]},{"id":
+2427279,"packageJobId":
+776666,"brands":
+[],"parentPartTypeId":
+"C0368","platformId":
+"05","partTypeId":
+"N1874","description":
+null,"brandsAvailable":
+[]}],"name":
+"Example - Oil Change Job","packageSelected":
+false},{"id":
+776668,"partTypes":
+[{"id":
+2427286,"packageJobId":
+776668,"brands":
+[],"parentPartTypeId":
+"C0047","platformId":
+"05","partTypeId":
+"03304","description":
+null,"brandsAvailable":
+[]},{"id":
+2427285,"packageJobId":
+776668,"brands":
+[],"parentPartTypeId":
+"C0213","platformId":
+"05","partTypeId":
+"N0445","description":
+null,"brandsAvailable":
+[]},{"id":
+2427284,"packageJobId":
+776668,"brands":
+[],"parentPartTypeId":
+"C0047","platformId":
+"05","partTypeId":
+"03300","description":
+null,"brandsAvailable":
+[]}],"name":
+"Example - Wiper Change Job","packageSelected":
+false},{"id":
+776667,"partTypes":
+[{"id":
+4480828,"packageJobId":
+776667,"brands":
+[{"id":
+67474,"packagePartTypeId":
+4480828,"brandCode":
+"KANB","name":
+null},{"id":
+67450,"packagePartTypeId":
+4480828,"brandCode":
+"FRA0","name":
+null},{"id":
+67492,"packagePartTypeId":
+4480828,"brandCode":
+"FRA1","name":
+null},{"id":
+67471,"packagePartTypeId":
+4480828,"brandCode":
+"BBK2","name":
+null},{"id":
+67468,"packagePartTypeId":
+4480828,"brandCode":
+"FMS0","name":
+null},{"id":
+67489,"packagePartTypeId":
+4480828,"brandCode":
+"SPT0","name":
+null},{"id":
+67483,"packagePartTypeId":
+4480828,"brandCode":
+"ARI6","name":
+null},{"id":
+67456,"packagePartTypeId":
+4480828,"brandCode":
+"EDB0","name":
+null},{"id":
+67486,"packagePartTypeId":
+4480828,"brandCode":
+"AT70","name":
+null},{"id":
+67462,"packagePartTypeId":
+4480828,"brandCode":
+"OMX0","name":
+null},{"id":
+67504,"packagePartTypeId":
+4480828,"brandCode":
+"WIX0","name":
+null},{"id":
+67507,"packagePartTypeId":
+4480828,"brandCode":
+"KAN8","name":
+null},{"id":
+67477,"packagePartTypeId":
+4480828,"brandCode":
+"ARI7","name":
+null},{"id":
+67501,"packagePartTypeId":
+4480828,"brandCode":
+"KAN7","name":
+null},{"id":
+67495,"packagePartTypeId":
+4480828,"brandCode":
+"MOT0","name":
+null},{"id":
+67498,"packagePartTypeId":
+4480828,"brandCode":
+"KAN0","name":
+null},{"id":
+67465,"packagePartTypeId":
+4480828,"brandCode":
+"ACD0","name":
+null},{"id":
+67480,"packagePartTypeId":
+4480828,"brandCode":
+"ARI0","name":
+null},{"id":
+67453,"packagePartTypeId":
+4480828,"brandCode":
+"WIX1","name":
+null},{"id":
+67459,"packagePartTypeId":
+4480828,"brandCode":
+"MGD3","name":
+null}],"parentPartTypeId":
+"C0023","platformId":
+"05","partTypeId":
+"02512","description":
+null,"brandsAvailable":
+[]},{"id":
+2427281,"packageJobId":
+776667,"brands":
+[{"id":
+67381,"packagePartTypeId":
+2427281,"brandCode":
+"ATOA","name":
+null},{"id":
+67411,"packagePartTypeId":
+2427281,"brandCode":
+"NGK3","name":
+null},{"id":
+67342,"packagePartTypeId":
+2427281,"brandCode":
+"ETH0","name":
+null},{"id":
+67375,"packagePartTypeId":
+2427281,"brandCode":
+"CHP3","name":
+null},{"id":
+67393,"packagePartTypeId":
+2427281,"brandCode":
+"BOS2","name":
+null},{"id":
+67327,"packagePartTypeId":
+2427281,"brandCode":
+"NGK4","name":
+null},{"id":
+67360,"packagePartTypeId":
+2427281,"brandCode":
+"NGK5","name":
+null},{"id":
+67408,"packagePartTypeId":
+2427281,"brandCode":
+"NGK0","name":
+null},{"id":
+67351,"packagePartTypeId":
+2427281,"brandCode":
+"ATO7","name":
+null},{"id":
+67333,"packagePartTypeId":
+2427281,"brandCode":
+"DENI","name":
+null},{"id":
+67363,"packagePartTypeId":
+2427281,"brandCode":
+"ATO8","name":
+null},{"id":
+67330,"packagePartTypeId":
+2427281,"brandCode":
+"DENP","name":
+null},{"id":
+67369,"packagePartTypeId":
+2427281,"brandCode":
+"CHP7","name":
+null},{"id":
+67378,"packagePartTypeId":
+2427281,"brandCode":
+"CHP2","name":
+null},{"id":
+67348,"packagePartTypeId":
+2427281,"brandCode":
+"NGK6","name":
+null},{"id":
+67366,"packagePartTypeId":
+2427281,"brandCode":
+"NGK2","name":
+null},{"id":
+67336,"packagePartTypeId":
+2427281,"brandCode":
+"ACC0","name":
+null},{"id":
+67414,"packagePartTypeId":
+2427281,"brandCode":
+"OMX0","name":
+null},{"id":
+67339,"packagePartTypeId":
+2427281,"brandCode":
+"CHP6","name":
+null},{"id":
+67354,"packagePartTypeId":
+2427281,"brandCode":
+"NGK1","name":
+null},{"id":
+41425,"packagePartTypeId":
+2427281,"brandCode":
+"ATO1","name":
+null},{"id":
+41422,"packagePartTypeId":
+2427281,"brandCode":
+"ATO2","name":
+null},{"id":
+67405,"packagePartTypeId":
+2427281,"brandCode":
+"MOT0","name":
+null},{"id":
+67387,"packagePartTypeId":
+2427281,"brandCode":
+"DEN0","name":
+null},{"id":
+67324,"packagePartTypeId":
+2427281,"brandCode":
+"ACD1","name":
+null},{"id":
+67402,"packagePartTypeId":
+2427281,"brandCode":
+"PUL2","name":
+null},{"id":
+67399,"packagePartTypeId":
+2427281,"brandCode":
+"ACD3","name":
+null},{"id":
+67372,"packagePartTypeId":
+2427281,"brandCode":
+"BOSP","name":
+null},{"id":
+67321,"packagePartTypeId":
+2427281,"brandCode":
+"NGK8","name":
+null},{"id":
+67390,"packagePartTypeId":
+2427281,"brandCode":
+"CHP0","name":
+null},{"id":
+67345,"packagePartTypeId":
+2427281,"brandCode":
+"ACD0","name":
+null},{"id":
+67318,"packagePartTypeId":
+2427281,"brandCode":
+"CHP1","name":
+null},{"id":
+67396,"packagePartTypeId":
+2427281,"brandCode":
+"CHP5","name":
+null},{"id":
+41416,"packagePartTypeId":
+2427281,"brandCode":
+"ATO3","name":
+null},{"id":
+67357,"packagePartTypeId":
+2427281,"brandCode":
+"ACD2","name":
+null},{"id":
+67384,"packagePartTypeId":
+2427281,"brandCode":
+"BOSQ","name":
+null},{"id":
+41419,"packagePartTypeId":
+2427281,"brandCode":
+"ATO6","name":
+null}],"parentPartTypeId":
+"C0334","platformId":
+"05","partTypeId":
+"03435","description":
+null,"brandsAvailable":
+[]},{"id":
+4480834,"packageJobId":
+776667,"brands":
+[{"id":
+67558,"packagePartTypeId":
+4480834,"brandCode":
+"TSM0","name":
+null},{"id":
+67555,"packagePartTypeId":
+4480834,"brandCode":
+"ODI0","name":
+null},{"id":
+67567,"packagePartTypeId":
+4480834,"brandCode":
+"MGD0","name":
+null},{"id":
+67561,"packagePartTypeId":
+4480834,"brandCode":
+"MOT0","name":
+null},{"id":
+67570,"packagePartTypeId":
+4480834,"brandCode":
+"MTM0","name":
+null},{"id":
+67543,"packagePartTypeId":
+4480834,"brandCode":
+"ACD0","name":
+null},{"id":
+67564,"packagePartTypeId":
+4480834,"brandCode":
+"GAT0","name":
+null},{"id":
+67549,"packagePartTypeId":
+4480834,"brandCode":
+"URO0","name":
+null},{"id":
+67552,"packagePartTypeId":
+4480834,"brandCode":
+"BWD0","name":
+null},{"id":
+67546,"packagePartTypeId":
+4480834,"brandCode":
+"DOE0","name":
+null}],"parentPartTypeId":
+"C0023","platformId":
+"05","partTypeId":
+"02180","description":
+null,"brandsAvailable":
+[]},{"id":
+4480837,"packageJobId":
+776667,"brands":
+[{"id":
+67576,"packagePartTypeId":
+4480837,"brandCode":
+"ACD0","name":
+null},{"id":
+67579,"packagePartTypeId":
+4480837,"brandCode":
+"DOE0","name":
+null},{"id":
+67573,"packagePartTypeId":
+4480837,"brandCode":
+"FRA0","name":
+null}],"parentPartTypeId":
+"C0023","platformId":
+"05","partTypeId":
+"04950","description":
+null,"brandsAvailable":
+[]},{"id":
+3766030,"packageJobId":
+776667,"brands":
+[{"id":
+67441,"packagePartTypeId":
+3766030,"brandCode":
+"DLP0","name":
+null},{"id":
+67447,"packagePartTypeId":
+3766030,"brandCode":
+"BWD0","name":
+null},{"id":
+67417,"packagePartTypeId":
+3766030,"brandCode":
+"ODI0","name":
+null},{"id":
+67435,"packagePartTypeId":
+3766030,"brandCode":
+"MOT0","name":
+null},{"id":
+67444,"packagePartTypeId":
+3766030,"brandCode":
+"HYP0","name":
+null},{"id":
+67429,"packagePartTypeId":
+3766030,"brandCode":
+"HLX0","name":
+null},{"id":
+67426,"packagePartTypeId":
+3766030,"brandCode":
+"OPI0","name":
+null},{"id":
+67438,"packagePartTypeId":
+3766030,"brandCode":
+"ACC0","name":
+null},{"id":
+67432,"packagePartTypeId":
+3766030,"brandCode":
+"ACD0","name":
+null},{"id":
+67420,"packagePartTypeId":
+3766030,"brandCode":
+"BOS0","name":
+null},{"id":
+67423,"packagePartTypeId":
+3766030,"brandCode":
+"BWD1","name":
+null}],"parentPartTypeId":
+"C0334","platformId":
+"05","partTypeId":
+"C0413","description":
+null,"brandsAvailable":
+[]},{"id":
+3766033,"packageJobId":
+776667,"brands":
+[{"id":
+67279,"packagePartTypeId":
+3766033,"brandCode":
+"BWD0","name":
+null},{"id":
+67315,"packagePartTypeId":
+3766033,"brandCode":
+"ACC7","name":
+null},{"id":
+67267,"packagePartTypeId":
+3766033,"brandCode":
+"BWD1","name":
+null},{"id":
+67297,"packagePartTypeId":
+3766033,"brandCode":
+"ACC0","name":
+null},{"id":
+67270,"packagePartTypeId":
+3766033,"brandCode":
+"NGK0","name":
+null},{"id":
+67312,"packagePartTypeId":
+3766033,"brandCode":
+"ACC6","name":
+null},{"id":
+67288,"packagePartTypeId":
+3766033,"brandCode":
+"EDB0","name":
+null},{"id":
+67294,"packagePartTypeId":
+3766033,"brandCode":
+"ACCU","name":
+null},{"id":
+67261,"packagePartTypeId":
+3766033,"brandCode":
+"ACC9","name":
+null},{"id":
+67264,"packagePartTypeId":
+3766033,"brandCode":
+"OMS0","name":
+null},{"id":
+67285,"packagePartTypeId":
+3766033,"brandCode":
+"IDW0","name":
+null},{"id":
+67291,"packagePartTypeId":
+3766033,"brandCode":
+"OMX0","name":
+null},{"id":
+67282,"packagePartTypeId":
+3766033,"brandCode":
+"MOT0","name":
+null},{"id":
+67276,"packagePartTypeId":
+3766033,"brandCode":
+"FMS0","name":
+null},{"id":
+67273,"packagePartTypeId":
+3766033,"brandCode":
+"ACD0","name":
+null},{"id":
+67300,"packagePartTypeId":
+3766033,"brandCode":
+"ACC3","name":
+null},{"id":
+67303,"packagePartTypeId":
+3766033,"brandCode":
+"ACC5","name":
+null},{"id":
+67306,"packagePartTypeId":
+3766033,"brandCode":
+"ACC2","name":
+null},{"id":
+67258,"packagePartTypeId":
+3766033,"brandCode":
+"ACC8","name":
+null},{"id":
+67309,"packagePartTypeId":
+3766033,"brandCode":
+"USW0","name":
+null}],"parentPartTypeId":
+"C0334","platformId":
+"05","partTypeId":
+"02815","description":
+null,"brandsAvailable":
+[]},{"id":
+4480831,"packageJobId":
+776667,"brands":
+[{"id":
+67522,"packagePartTypeId":
+4480831,"brandCode":
+"WIX2","name":
+null},{"id":
+67516,"packagePartTypeId":
+4480831,"brandCode":
+"FRA1","name":
+null},{"id":
+67513,"packagePartTypeId":
+4480831,"brandCode":
+"ACD0","name":
+null},{"id":
+67510,"packagePartTypeId":
+4480831,"brandCode":
+"FRA0","name":
+null},{"id":
+67519,"packagePartTypeId":
+4480831,"brandCode":
+"WIXM","name":
+null},{"id":
+67525,"packagePartTypeId":
+4480831,"brandCode":
+"FRAF","name":
+null},{"id":
+67537,"packagePartTypeId":
+4480831,"brandCode":
+"FRAH","name":
+null},{"id":
+67534,"packagePartTypeId":
+4480831,"brandCode":
+"MGD0","name":
+null},{"id":
+67540,"packagePartTypeId":
+4480831,"brandCode":
+"WIX0","name":
+null},{"id":
+67528,"packagePartTypeId":
+4480831,"brandCode":
+"MOT0","name":
+null},{"id":
+67531,"packagePartTypeId":
+4480831,"brandCode":
+"KAN0","name":
+null}],"parentPartTypeId":
+"C0023","platformId":
+"05","partTypeId":
+"02515","description":
+null,"brandsAvailable":
+[]}],"name":
+"Tune up - Distributor","packageSelected":
+false}],"shopName":
+"Franks Tire And Repair LLC","shopPhone":
+"208-755-9841","shopFax":
+"","city":
+"Post FAlls","state":
+"ID","address":
+"1990 S Carpenter Lp Rd","zip":
+"83854","customerLocationId":
+""},"currentStore":
+{"storeNumber":
+3829,"county":
+"KOOTENAI","name":
+"POST FALLS ID 3829","address1":
+"1621 EAST SELTICE WAY","address2":
+"","city":
+"POST FALLS","state":
+"ID","zip":
+"838547007","phoneNumber":
+"208-773-4899","hubAttachedToStore":
+2719,"primarySupplier":
+51,"proPhoneNumber":
+"208-773-4534","latitude":
+null,"longitude":
+null},"isBondCOD":
+null}; quote.mitchell1User = false;
+    quote.vipUser = false;
+    quote.smartEquipUser = false;
+    quote.coupaUser = false;
+    quote.worksheetId = 364445626;
+    quote.isOrdered = true;
+    quote.hideCosts = false;
+    quote.paymentMethod = 'CHARGE';
+    quote.poMaskRegex = '^[A-Za-z0-9: .#-]*$';
+    quote.types = {
+        LABOR: 'LABOR',
+        OTHER: 'OTHER'
+    };
+    quote.pubbatches = false;
+    quote.storePhone = '(208) 773-4534';
+    quote.msgs = {
+        sourceLeft: '{0} left to source',
+        errorLocation: 'Error selecting property, please try again later',
+        errorLocationsNotFound: 'Could not retrieve sourcing locations, please try again later',
+        errorUnsourced: 'Not enough locations selected to fulfill quantity',
+        errorUpdate: 'Error updating the item, please try again later',
+        quickAdd: 'Quick Add',
+        addParts: 'Add Parts',
+        addLabor: 'Add Labor',
+        addOther: 'Add Other',
+        modifiedDateTime: 'Last Save',
+        headerDetailContentFailure: 'Sorry for the inconvenience. No quote header content could be retrieved. We are working on the problem and you should be able to access your quote shortly.',
+        couldNotBeRetrieved: 'Quote details could not be retrieved.',
+        placeOrderError: 'There was an error placing your order.',
+        deleteVehicleError: 'Error deleting the selected vehicle. Please try again later.',
+        deleteQuoteError: 'Error removing quote, please try again later',
+        deleteDetailError: 'Error removing item, please try again later',
+        updateError: 'Error updating the quote. Please try again later.',
+        addLaborError: 'Error adding labor to quote, please try again later',
+        switchVehicleError: 'Error switching vehicle, please try again later',
+        submitCartMsg: 'Cart submitted back to COUPA.',
+        quickAddSection: {
+            quickAddError: 'There was an error while adding the part, please try again',
+            quickAddNoPartError: 'Please select a part before continuing',
+            quickAddNoQuantityError: 'Please enter a quantity before continuing',
+            quickAddNonPositiveQuantityError: 'Quantity must be greater than 0',
+            quickAddPartEntryError: 'Error reading the entered part. Please enter the line code and item number only.',
+            descriptionUnavailable: 'Description Unavailable',
+            enterPartNumber: 'Enter Part Number',
+            add: 'Add',
+            errorLoading: 'The results could not be loaded.',
+            inputTooLongSingle: 'Please delete {0} character.',
+            inputTooLongMutli: 'Please delete {0} characters.',
+            inputTooShort: 'Please enter {0} or more characters.',
+            inputTooShortEnter: 'Typing will search.',
+            loadingMore: 'Loading more results...',
+            maximumSelectedSingle: 'You can only select {0} item.',
+            maximumSelectedMulti: 'You can only select {0} items.',
+            noResults: 'No results found',
+            searching: 'Searching...',
+            placeholder: ''
+        },
+        addOtherError: 'Error adding other charge to quote, please try again later',
+        noItemsAdded: 'No Items Added',
+        currentVehicle: 'Current Vehicle',
+        selectVehicle: 'Select Vehicle',
+        vehicleTable: {
+            actions: 'Actions',
+            vehicleActions: 'Vehicle Actions',
+            vehicleInfo: 'Vehicle Info',
+            deleteVehicle: 'Delete Vehicle',
+            partsAndSupplies: 'Parts & Supplies',
+            type: 'Type',
+            item: 'Item',
+            description: 'Description',
+            quantity: 'Qty',
+            list: 'List',
+            extList: 'Ext List',
+            cost: 'Cost',
+            extCost: 'Ext Cost',
+            availability: 'Availability',
+            order: 'Order',
+            none: 'Call Store',
+            core: 'Core',
+            dc: 'DC',
+            hub: 'HUB',
+            store: 'STR',
+            surroundingStore: 'SS',
+            linkedDC: 'LDC',
+            unsourced: 'Out of Stock',
+            remove: 'Remove',
+            notice: 'NOTICE',
+            fitmentWarning: 'This product was not looked up through the catalog process and is not guaranteed to fit your currently selected vehicle.',
+            addBtn: 'Add',
+            fleetId: 'Fleet ID',
+            bayId: 'Garage Bay ID',
+            customerInfoTitle: 'Customer Information',
+            warning: 'WARNING:'
+        },
+        summary: {
+            invoiceOrderAt: 'Invoice Order at',
+            orderSummary: 'Order Summary',
+            quoteSummary: 'Quote Summary',
+            poLabel: 'P.O. #',
+            deliveryType: 'Delivery Type',
+            delivery: 'Delivery',
+            pickup: 'Pickup',
+            pleaseSelect: 'Please Select',
+            paymentType: 'Payment Type',
+            cash: 'Cash',
+            charge: 'Charge',
+            parts: 'Parts:',
+            labor: 'Labor:',
+            other: 'Other:',
+            tax: 'Tax:',
+            availablePromotions: 'Available Promotions',
+            selectPromotion: 'Select a Promotion',
+            promoSelected: 'Selected Promotion',
+            returnsWaiting: 'Check for Returns Pickup:',
+            total: 'Total:',
+            pickTicketAt: 'Pick Ticket at',
+            
+            
+            
+            
+            placeOrder: 'Place Order'
+            
+            
+        },
+        message: {
+            shopInfo: 'Shop Info',
+            store: 'My Store',
+            notes: 'Notes',
+            storeMessage: 'Store Message',
+            quoteDescription: 'Quote Description',
+            serviceNotes: 'Service Notes',
+            companyName: 'Company Name',
+            accountNumber: 'Account #',
+            shopName: 'Shop Name',
+            address: 'Address',
+            phoneNumber: 'Phone #',
+            fax: 'Fax #'
+        },
+        addOtherForm: {
+            addBtn: 'Add',
+            protoDesc: 'Add Other charges description',
+            protoPrice: '$0.00',
+            quantity: 'Qty',
+            protoExtendedPrice: '$0.00',
+            remove: 'Remove'
+        },
+        addLaborForm: {
+            description: 'Labor Description',
+            price: '$0.00',
+            hours: 'Hours',
+            extendedPrice: '$0.00',
+            remove: 'Remove'
+        },
+        validation: {
+            descriptionLength: 'Please enter a shorter description'
+        },
+        orderDetails: {
+            createdByTitle: 'Created By:',
+            createdDateTitle: 'Created:',
+            modifiedByTitle: 'Modified By:',
+            modifiedDateTitle: 'Modified:'
+        },
+        kits: {
+            promotion: 'Promotion',
+            kitPrice: 'Kit Price',
+            savings: 'Savings',
+            partNotOrdered: 'To receive promotional pricing, all items within the kit must be ordered.',
+            kitTypes: {
+                'BRAKE': 'Brake',
+                'AC': 'A/C'
+            },
+        }
+    };
