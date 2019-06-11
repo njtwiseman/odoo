@@ -9,10 +9,10 @@ class AutoServiceShop(models.Model):
     _rec_name = 'name'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     name = fields.Char(string='Service Number', copy=False, default="New")
-    
+
     # customer info
-    person_name = fields.Many2one('res.partner', 
-            string="Customer Name", 
+    person_name = fields.Many2one('res.partner',
+            string="Customer Name",
             required=True,
             domain="[('customer','=','True')]")
     contact_no = fields.Char(related='person_name.mobile', string="Contact Number")
@@ -25,21 +25,21 @@ class AutoServiceShop(models.Model):
     #country_id = fields.Many2one(related='person_name.country_id', string="Country")
     #street2 = fields.Char(related='person_name.street2', string="Address")
 
-    
+
     # vehicle info
     vehicle = fields.Many2one('vehicle.vehicle')
     make = fields.Char(related='vehicle.make.make', string="Make", store=True)
     model = fields.Char(related='vehicle.model.model', string="Model")
 
     is_in_warranty = fields.Boolean(
-        'In Warranty', default=False,
-        help="Specify if the product is in warranty.")
+            'In Warranty', default=False,
+            help="Specify if the product is in warranty.")
 
     warranty_number = fields.Char(string="Warranty No ", help="warranty details")
 
     re_repair = fields.Boolean(
-        'Re-repair', default=False,
-        help="Re-repairing.")
+            'Re-repair', default=False,
+            help="Re-repairing.")
 
     imei_no = fields.Char(string="IMEI Number")
 
@@ -48,11 +48,11 @@ class AutoServiceShop(models.Model):
     date_request = fields.Date(string="Requested date", default=fields.Date.context_today)
     return_date = fields.Date(string="Return date", required=True)
     technicion_name = fields.Many2one('res.users', string="Technician Name",
-                                      default=lambda self: self.env.user, required=True)
+            default=lambda self: self.env.user, required=True)
     service_state = fields.Selection([('draft', 'Draft'), ('assigned', 'Assigned'),
-                                      ('completed', 'Completed'), ('returned', 'Returned'),
-                                      ('not_solved', 'Not solved')],
-                                     string='Service Status', default='draft', track_visibility='always')
+        ('completed', 'Completed'), ('returned', 'Returned'),
+        ('not_solved', 'Not solved')],
+        string='Service Status', default='draft', track_visibility='always')
 
     complaints_tree = fields.One2many('auto.complaint.tree', 'complaint_id', string='Complaints Tree')
 
@@ -61,17 +61,17 @@ class AutoServiceShop(models.Model):
     internal_notes = fields.Text(string="Internal notes")
     invoice_count = fields.Integer(compute='_invoice_count', string='# Invoice', copy=False)
     invoice_ids = fields.Many2many("account.invoice", string='Invoices', compute="_get_invoiced", readonly=True,
-                                   copy=False)
+            copy=False)
 
     first_payment_inv = fields.Many2one('account.invoice', copy=False)
 
     first_invoice_created = fields.Boolean(string="First Invoice Created", invisible=True, copy=False)
 
     journal_type = fields.Many2one('account.journal', 'Journal', invisible=True,
-                                   default=lambda self: self.env['account.journal'].search([('code', '=', 'SERV')]))
+            default=lambda self: self.env['account.journal'].search([('code', '=', 'SERV')]))
 
     company_id = fields.Many2one('res.company', 'Company',
-                                 default=lambda self: self.env['res.company']._company_default_get('auto.service'))
+            default=lambda self: self.env['res.company']._company_default_get('auto.service'))
 
     @api.model
     def _default_picking_transfer(self):
@@ -85,8 +85,8 @@ class AutoServiceShop(models.Model):
     stock_picking_id = fields.Many2one('stock.picking', string="Picking Id")
 
     picking_transfer_id = fields.Many2one('stock.picking.type', 'Deliver To', required=True,
-                                          default=_default_picking_transfer,
-                                          help="This will determine picking type of outgoing shipment")
+            default=_default_picking_transfer,
+            help="This will determine picking type of outgoing shipment")
 
     @api.onchange('return_date')
     def check_date(self):
@@ -128,25 +128,25 @@ class AutoServiceShop(models.Model):
         except ValueError:
             compose_form_id = False
         ctx = {
-            'default_model': 'auto.service',
-            'default_res_id': self.ids[0],
-            'default_use_template': bool(template_id),
-            'default_template_id': template_id,
-            'default_composition_mode': 'comment',
-        }
+                'default_model': 'auto.service',
+                'default_res_id': self.ids[0],
+                'default_use_template': bool(template_id),
+                'default_template_id': template_id,
+                'default_composition_mode': 'comment',
+                }
         return {
-            'name': _('Compose Email'),
-            'type': 'ir.actions.act_window',
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'mail.compose.message',
-            'views': [(compose_form_id, 'form')],
-            'view_id': compose_form_id,
-            'target': 'new',
-            'context': ctx,
-        }
+                'name': _('Compose Email'),
+                'type': 'ir.actions.act_window',
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_model': 'mail.compose.message',
+                'views': [(compose_form_id, 'form')],
+                'view_id': compose_form_id,
+                'target': 'new',
+                'context': ctx,
+                }
 
-    @api.multi
+        @api.multi
     def return_advance(self):
         inv_obj = self.env['account.invoice'].search([('origin', '=', self.name)])
         inv_ids = []
@@ -156,27 +156,27 @@ class AutoServiceShop(models.Model):
         if inv_ids:
             if len(inv_ids) <= 1:
                 value = {
-                    'view_type': 'form',
-                    'view_mode': 'form',
-                    'res_model': 'account.invoice',
-                    'view_id': view_id,
-                    'type': 'ir.actions.act_window',
-                    'name': 'Invoice',
-                    'res_id': inv_ids and inv_ids[0]
-                }
+                        'view_type': 'form',
+                        'view_mode': 'form',
+                        'res_model': 'account.invoice',
+                        'view_id': view_id,
+                        'type': 'ir.actions.act_window',
+                        'name': 'Invoice',
+                        'res_id': inv_ids and inv_ids[0]
+                        }
             else:
                 value = {
-                    'domain': str([('id', 'in', inv_ids)]),
-                    'view_type': 'form',
-                    'view_mode': 'tree,form',
-                    'res_model': 'account.invoice',
-                    'view_id': False,
-                    'type': 'ir.actions.act_window',
-                    'name': 'Invoice',
-                    'res_id': inv_ids
-                }
+                        'domain': str([('id', 'in', inv_ids)]),
+                        'view_type': 'form',
+                        'view_mode': 'tree,form',
+                        'res_model': 'account.invoice',
+                        'view_id': False,
+                        'type': 'ir.actions.act_window',
+                        'name': 'Invoice',
+                        'res_id': inv_ids
+                        }
 
-            return value
+                return value
         else:
             raise UserError("No invoice created")
 
@@ -189,7 +189,7 @@ class AutoServiceShop(models.Model):
     def create(self, vals):
         if 'company_id' in vals:
             vals['name'] = self.env['ir.sequence'].with_context(force_company=vals['company_id']).next_by_code(
-                'auto.service') or _('New')
+                    'auto.service') or _('New')
         else:
             vals['name'] = self.env['ir.sequence'].next_by_code('auto.service') or _('New')
         vals['service_state'] = 'draft'
@@ -206,33 +206,33 @@ class AutoServiceShop(models.Model):
     def action_invoice_create_wizard(self):
 
         return {
-            'name': _('Create Invoice'),
-            'view_type': 'form',
-            'view_mode': 'form',
-            'res_model': 'auto.invoice',
-            'type': 'ir.actions.act_window',
-            'target': 'new'
-        }
+                'name': _('Create Invoice'),
+                'view_type': 'form',
+                'view_mode': 'form',
+                'res_model': 'auto.invoice',
+                'type': 'ir.actions.act_window',
+                'target': 'new'
+                }
 
-    @api.multi
+        @api.multi
     def action_post_stock(self):
         flag = 0
         for order in self.product_order_line:
             if order.product_uom_qty > order.qty_stock_move:
                 flag = 1
                 pick = {
-                    'picking_type_id': self.picking_transfer_id.id,
-                    'partner_id': self.person_name.id,
-                    'origin': self.name,
-                    'location_dest_id': self.person_name.property_stock_customer.id,
-                    'location_id': self.picking_transfer_id.default_location_src_id.id,
-                }
+                        'picking_type_id':  self.picking_transfer_id.id,
+                        'partner_id':       self.person_name.id,
+                        'origin':           self.name,
+                        'location_dest_id': self.person_name.property_stock_customer.id,
+                        'location_id':      self.picking_transfer_id.default_location_src_id.id,
+                        }
 
                 picking = self.env['stock.picking'].create(pick)
                 self.stock_picking_id = picking.id
                 self.picking_count = len(picking)
                 moves = order.filtered(
-                    lambda r: r.product_id.type in ['product', 'consu'])._create_stock_moves_transfer(picking)
+                        lambda r: r.product_id.type in ['product', 'consu'])._create_stock_moves_transfer(picking)
                 move_ids = moves._action_confirm()
                 move_ids._action_assign()
             if order.product_uom_qty < order.qty_stock_move:
@@ -251,27 +251,27 @@ class AutoServiceShop(models.Model):
         if inv_ids:
             if len(inv_ids) <= 1:
                 value = {
-                    'view_type': 'form',
-                    'view_mode': 'form',
-                    'res_model': 'account.invoice',
-                    'view_id': view_id,
-                    'type': 'ir.actions.act_window',
-                    'name': 'Invoice',
-                    'res_id': inv_ids and inv_ids[0]
-                }
+                        'view_type': 'form',
+                        'view_mode': 'form',
+                        'res_model': 'account.invoice',
+                        'view_id': view_id,
+                        'type': 'ir.actions.act_window',
+                        'name': 'Invoice',
+                        'res_id': inv_ids and inv_ids[0]
+                        }
             else:
                 value = {
-                    'domain': str([('id', 'in', inv_ids)]),
-                    'view_type': 'form',
-                    'view_mode': 'tree,form',
-                    'res_model': 'account.invoice',
-                    'view_id': False,
-                    'type': 'ir.actions.act_window',
-                    'name': 'Invoice',
-                    'res_id': inv_ids
-                }
+                        'domain': str([('id', 'in', inv_ids)]),
+                        'view_type': 'form',
+                        'view_mode': 'tree,form',
+                        'res_model': 'account.invoice',
+                        'view_id': False,
+                        'type': 'ir.actions.act_window',
+                        'name': 'Invoice',
+                        'res_id': inv_ids
+                        }
 
-            return value
+                return value
 
     @api.multi
     def get_ticket(self):
@@ -298,22 +298,22 @@ class AutoServiceShop(models.Model):
                 complaint = obj.complaint_type_tree
                 complaint_text = complaint.complaint_type + ", " + complaint_text
         data = {
-            'ids': self.ids,
-            'model': self._name,
-            'date_today': date_today,
-            'date_request': self.date_request,
-            'date_return': self.return_date,
-            'sev_id': self.name,
-            'warranty': self.is_in_warranty,
-            'customer_name': self.person_name.name,
-            'imei_no': self.imei_no,
-            'technician': self.technicion_name.name,
-            'complaint_types': complaint_text,
-            'complaint_description': description_text,
-            'make': self.make,
-            'model': self.model,
+                'ids': self.ids,
+                'model': self._name,
+                'date_today': date_today,
+                'date_request': self.date_request,
+                'date_return': self.return_date,
+                'sev_id': self.name,
+                'warranty': self.is_in_warranty,
+                'customer_name': self.person_name.name,
+                'imei_no': self.imei_no,
+                'technician': self.technicion_name.name,
+                'complaint_types': complaint_text,
+                'complaint_description': description_text,
+                'make': self.make,
+                'model': self.model,
 
-        }
+                }
         return self.env.ref('auto_service_shop.auto_service_ticket').report_action(self, data=data)
 
 
@@ -343,9 +343,9 @@ class AutoComplaintTree(models.Model):
 
     complaint_type_tree = fields.Many2one('auto.complaint', string="Category", required=True)
     description_tree = fields.Many2one('auto.complaint.description', string="Description",
-                                       domain="[('complaint_type_template','=',complaint_type_tree)]")
+            domain="[('complaint_type_template','=',complaint_type_tree)]")
 
-# Vehicle Info #
+    # Vehicle Info #
 class AutoBrandModels(models.Model):
     _name = 'brand.model'
     _rec_name = 'auto_brand_models'
@@ -372,12 +372,12 @@ class ProductProduct(models.Model):
     _inherit = 'product.template'
 
     is_a_parts = fields.Boolean(
-        'Is a Auto Part', default=False,
-        help="Specify if the product is a auto part or not.")
+            'Is a Auto Part', default=False,
+            help="Specify if the product is a auto part or not.")
 
     brand_name = fields.Many2one('auto.brand', String="Brand", help="Select a auto brand for the part")
     model_name = fields.Many2one('brand.model', String="Model Name", domain="[('auto_brand_name','=',brand_name)]",
-                                 help="Select a model for the part")
+            help="Select a model for the part")
     model_colour = fields.Char(string="Colour", help="colour for the part")
     extra_descriptions = fields.Text(string="Note")
 
@@ -388,7 +388,7 @@ class ProductOrderLine(models.Model):
     product_order_id = fields.Many2one('auto.service')
 
     product_id = fields.Many2one('product.product', string='Product',
-                                 domain="[('is_a_parts','=', True)]", required=True)
+            domain="[('is_a_parts','=', True)]", required=True)
     product_uom_qty = fields.Float(string='Used Quantity', default=1.0, required=True)
     price_unit = fields.Float(string='Unit Price', default=0.0, required=True)
     qty_invoiced = fields.Float(string='Invoiced qty', readonly=True)
@@ -414,36 +414,36 @@ class ProductOrderLine(models.Model):
 
             line.update({
                 'part_price': price,
-            })
+                })
 
-    def _create_stock_moves_transfer(self, picking):
-        moves = self.env['stock.move']
+            def _create_stock_moves_transfer(self, picking):
+                moves = self.env['stock.move']
         done = self.env['stock.move'].browse()
         if self.product_id.product_tmpl_id.type != 'service':
             price_unit = self.price_unit
             template = {
-                'name': self.product_id.product_tmpl_id.name or '',
-                'product_id': self.product_id.id,
-                'product_uom': self.product_id.product_tmpl_id.uom_id.id,
-                'location_id': picking.picking_type_id.default_location_src_id.id,
-                'location_dest_id': self.product_order_id.person_name.property_stock_customer.id,
-                'picking_id': picking.id,
-                'move_dest_id': False,
-                'state': 'draft',
-                'company_id': self.product_order_id.company_id.id,
-                'price_unit': price_unit,
-                'picking_type_id': picking.picking_type_id.id,
-                'procurement_id': False,
-                'route_ids': 1 and [
-                    (6, 0, [x.id for x in self.env['stock.location.route'].search([('id', 'in', (2, 3))])])] or [],
-                'warehouse_id': picking.picking_type_id.warehouse_id.id,
-            }
+                    'name': self.product_id.product_tmpl_id.name or '',
+                    'product_id': self.product_id.id,
+                    'product_uom': self.product_id.product_tmpl_id.uom_id.id,
+                    'location_id': picking.picking_type_id.default_location_src_id.id,
+                    'location_dest_id': self.product_order_id.person_name.property_stock_customer.id,
+                    'picking_id': picking.id,
+                    'move_dest_id': False,
+                    'state': 'draft',
+                    'company_id': self.product_order_id.company_id.id,
+                    'price_unit': price_unit,
+                    'picking_type_id': picking.picking_type_id.id,
+                    'procurement_id': False,
+                    'route_ids': 1 and [
+                        (6, 0, [x.id for x in self.env['stock.location.route'].search([('id', 'in', (2, 3))])])] or [],
+                    'warehouse_id': picking.picking_type_id.warehouse_id.id,
+                    }
             qty = self.product_uom_qty - self.qty_stock_move
             diff_quantity = qty
             tmp = template.copy()
             tmp.update({
                 'product_uom_qty': diff_quantity,
-            })
+                })
             template['product_uom_qty'] = diff_quantity
             done += moves.create(template)
             self.qty_stock_move = self.qty_stock_move + qty
