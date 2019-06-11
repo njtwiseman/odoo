@@ -1,22 +1,28 @@
 <odoo>
   <data>
-	<!--
-	  <template>
-	  </template>
-	  <re
-	  </r
-	  <re
-	  </r
-	  <me
-	  <me
-	  <me
-	  <me
-	  <me
-	  <me
-	  <me
-	  <me
-	  <me
-	  <me
-	-->
-	</data>
-  </odoo>
+	<!-- explicit list view definition -->
+	<record model="ir.ui.view" id="vehicle.list">
+	  <field name="name">Vehicle List</field>
+	  <field name="model">vehicle.vehicle</field>
+	  <field name="arch" type="xml">
+      <tree>
+        <field name="vin"/>
+        <field name="licensePlate"/>
+        <field name="year"/>
+        <field name="make"/>
+        <field name="model"/>
+		</tree>
+  </field>
+
+
+  <menuitem name="Vehicles" id="vehicle.menu_root"/>
+    
+	<menuitem name="Year" id="vehicle.year" parent="vehicle.menu_root"
+	  action="vehicle.vehicle_action_window"/>
+	<menuitem name="Make" id="vehicle.make" parent="vehicle.menu_root"
+	  action="vehicle.update_action_window"/>
+	<menuitem name="Model" id="vehicle.model" parent="vehicle.menu_root"
+	  action="vehicle.part_action_window"/>
+	</record>
+  </data>
+</odoo>

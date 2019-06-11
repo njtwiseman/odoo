@@ -18,7 +18,7 @@
 ##############################################################################
 {
     'name': 'Auto Service Management',
-    'version': '12.0.1.0.0',
+    'version': '12.0.1.0.1',
     'summary': 'Module for managing auto service shop daily activities.',
     'category': 'Industries',
     'author': 'Cybrosys Techno Solutions',
@@ -29,6 +29,7 @@
     'data': ['security/security.xml',
              'security/ir.model.access.csv',
              'views/auto_service_views.xml',
+             'views/vehicle_views.xml',
              #'wizard/auto_create_invoice_views.xml',
              #'reports/auto_service_ticket.xml',
              #'reports/service_ticket_template.xml',
