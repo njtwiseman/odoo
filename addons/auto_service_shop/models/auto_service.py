@@ -35,15 +35,13 @@ class AutoServiceShop(models.Model):
             'In Warranty', default=False,
             help="Specify if the product is in warranty.")
 
-    warranty_number = fields.Char(string="Warranty No ", help="warranty details")
+    warranty_number = fields.Char(string="XXX Warranty No XXX", help="warranty details")
 
     re_repair = fields.Boolean(
             'Re-repair', default=False,
             help="Re-repairing.")
 
-    imei_no = fields.Char(string="IMEI Number")
-
-    # this seems to be a problematic line
+    imei_no = fields.Char(string="XXX IMEI Number XXX")
     image_medium = fields.Binary(string="Image", store=True, attachment=True)
     date_request = fields.Date(string="Requested date", default=fields.Date.context_today)
     return_date = fields.Date(string="Return date", required=True)
@@ -146,7 +144,7 @@ class AutoServiceShop(models.Model):
                 'context': ctx,
                 }
 
-        @api.multi
+    @api.multi
     def return_advance(self):
         inv_obj = self.env['account.invoice'].search([('origin', '=', self.name)])
         inv_ids = []
@@ -214,7 +212,7 @@ class AutoServiceShop(models.Model):
                 'target': 'new'
                 }
 
-        @api.multi
+    @api.multi
     def action_post_stock(self):
         flag = 0
         for order in self.product_order_line:
