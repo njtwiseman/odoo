@@ -5,7 +5,6 @@ from odoo import models, api, fields, _
 
 class Vehicle(models.Model):
     _name = 'vehicle.vehicle'
-    name = fields.Char(default='new')
     vehicle_id = fields.Char(compute='_gen_id', store=True)
 
     # identifying info
@@ -56,9 +55,8 @@ class VehicleVin(models.Model):
     _name = 'vehicle.vin'
     _description = 'Vehicle Identification Number'
     _rec_name = 'vin'
-    _parent_store = True
-    parent_path = fields.Char(index=True)
-    parent_id = fields.One2many('vehicle.vehicle', 'vin',)
+#    _parent_store = True
+#    parent_path = fields.Char(index=True, default="vehicle.vehicle")
 
     vin = fields.Char(string='VIN')
 
@@ -68,10 +66,9 @@ class VehiclePlate(models.Model):
     _name = 'vehicle.plate'
     _description = 'Vehicle License Plate'
     _rec_name = 'licensePlate'
-    _parent_store = True
-    _parent_name = 'vehicle_parent'
-    parent_path = fields.Char(index=True)
-    vehicle_parent = fields.One2many('vehicle.vehicle','licensePlate',)
+#    _parent_store = True
+#    parent_path = fields.Char(index=True)
+#    parent_id = fields.One2many('vehicle.vehicle','vehicle_id')
 
     licensePlate = fields.Char(string='Plate')
 
@@ -82,10 +79,9 @@ class VehicleYear(models.Model):
     _name = 'vehicle.year'
     _description = 'Vehicle Model Year  - not a build date'
     _rec_name = 'year'
-    _parent_store = True
-    _parent_name = 'vehicle_id'
-    parent_path = fields.Char(index=True)
-    vehicle_id = fields.One2many('vehicle.vehicle','year')
+#    _parent_store = True
+#    parent_path = fields.Char(index=True)
+#    parent_id = fields.One2many('vehicle.vehicle','vehicle_id')
 
     year = fields.Char(string="Year")
     make = fields.Many2one('vehicle.make')
@@ -94,9 +90,9 @@ class VehicleYear(models.Model):
 class VehicleMake(models.Model):
     _name = 'vehicle.make'
     _rec_name = 'make'
-    _parent_store = True
-    _parent_name = 'year'
-    parent_path = fields.Char(index=True)
+#    _parent_store = True
+#    _parent_name = 'year'
+#    parent_path = fields.Char(index=True)
     year = fields.One2many('vehicle.year','year',)
 
     make = fields.Char(string="Make")
@@ -105,9 +101,9 @@ class VehicleMake(models.Model):
 class VehicleModel(models.Model):
     _name = 'vehicle.model'
     _rec_name = 'model'
-    _parent_store = True
-    _parent_name = 'make'
-    parent_path = fields.Char(index=True)
+#    _parent_store = True
+#    _parent_name = 'make'
+#    parent_path = fields.Char(index=True)
     make = fields.One2many('vehicle.make', 'model',)
 
     model = fields.Char(string="Model")
