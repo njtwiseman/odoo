@@ -6,6 +6,7 @@ from odoo import models, api, fields, _
 class Vehicle(models.Model):
     _name = 'vehicle.vehicle'
     vehicle_id = fields.Char(compute='_gen_id', store=True)
+    _rec_name = 'vehicle_id'
 
     # identifying info
     vin6                    = fields.Char(compute="_compute_vin_6")
@@ -13,11 +14,13 @@ class Vehicle(models.Model):
     stockNo = fields.Char()
 
     # relational fields
-    vin          = fields.Many2one('vehicle.vin')
-    licensePlate = fields.Many2one('vehicle.plate')
-    year         = fields.Many2one('vehicle.year')
-    make         = fields.Many2one('vehicle.make')
-    model        = fields.Many2one('vehicle.model')
+    vin          = fields.Char()#Many2one('vehicle.vin')
+    licensePlate = fields.Char()#Many2one('vehicle.plate')
+    ymm = fields.Many2one('vehicle.ymm')
+    make = fields.Char()
+    model = fields.Char()
+    year = fields.Char()
+
 
     def _gen_id(self):
         for rec in self:
@@ -36,6 +39,8 @@ class Vehicle(models.Model):
     @api.multi
     def findVehicleInfo(self):
         """ RecordSet => None
+
+            Split into vinSearch and plateSearch
         """
         for rec in self:
             print(self.env['oreilly.vehicle'].search(
@@ -57,34 +62,35 @@ class VehicleVin(models.Model):
     _rec_name = 'vin'
 #    _parent_store = True
 #    parent_path = fields.Char(index=True, default="vehicle.vehicle")
-
     vin = fields.Char(string='VIN')
 
-    year = fields.Many2one('vehicle.year')
+#    year = fields.Many2one('vehicle.year')
 
 class VehiclePlate(models.Model):
     _name = 'vehicle.plate'
     _description = 'Vehicle License Plate'
     _rec_name = 'licensePlate'
-#    _parent_store = True
-#    parent_path = fields.Char(index=True)
-#    parent_id = fields.One2many('vehicle.vehicle','vehicle_id')
-
     licensePlate = fields.Char(string='Plate')
+#    year = fields.Many2one('vehicle.year')
 
+
+class YMM(models.Model):
+    _name = 'vehicle.ymm'
+    _description = "the Year Make and Model"
+    vehicle_id = fields.One2many('vehicle.vehicle', 'ymm')
+    name = fields.Char()
     year = fields.Many2one('vehicle.year')
+    make = fields.Char()#Many2one('vehicle.make')
+    model = fields.Char()#Many2one('vehicle.model')
+
 
 
 class VehicleYear(models.Model):
     _name = 'vehicle.year'
     _description = 'Vehicle Model Year  - not a build date'
     _rec_name = 'year'
-#    _parent_store = True
-#    parent_path = fields.Char(index=True)
-#    parent_id = fields.One2many('vehicle.vehicle','vehicle_id')
-
     year = fields.Char(string="Year")
-    make = fields.Many2one('vehicle.make')
+    make = fields.Many2many('vehicle.make')
 
 
 class VehicleMake(models.Model):
@@ -93,10 +99,9 @@ class VehicleMake(models.Model):
 #    _parent_store = True
 #    _parent_name = 'year'
 #    parent_path = fields.Char(index=True)
-    year = fields.One2many('vehicle.year','year',)
-
+    year = fields.Many2many('vehicle.year')#One2many('vehicle.year','year',)
     make = fields.Char(string="Make")
-    model = fields.Many2one('vehicle.model')
+    model = fields.Char()#Many2one('vehicle.model')
 
 class VehicleModel(models.Model):
     _name = 'vehicle.model'
@@ -104,8 +109,7 @@ class VehicleModel(models.Model):
 #    _parent_store = True
 #    _parent_name = 'make'
 #    parent_path = fields.Char(index=True)
-    make = fields.One2many('vehicle.make', 'model',)
-
+    make = fields.Char()#One2many('vehicle.make', 'model')
     model = fields.Char(string="Model")
 
 

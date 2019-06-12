@@ -22,14 +22,14 @@ class AutoServiceShop(models.Model):
     state_id = fields.Many2one(related='person_name.state_id', string="State")
     zip = fields.Char(related='person_name.zip', string="Zip")
 
-    #country_id = fields.Many2one(related='person_name.country_id', string="Country")
-    #street2 = fields.Char(related='person_name.street2', string="Address")
+    country_id = fields.Many2one(related='person_name.country_id', string="Country")
+    street2 = fields.Char(related='person_name.street2', string="Address")
 
 
     # vehicle info
     vehicle = fields.Many2one('vehicle.vehicle')
-    make = fields.Char(related='vehicle.make.make', string="Make", store=True)
-    model = fields.Char(related='vehicle.model.model', string="Model")
+    make = fields.Char()#related='vehicle.make.make', string="Make", store=True)
+    model = fields.Char()#related='vehicle.model.model', string="Model")
 
     is_in_warranty = fields.Boolean(
             'In Warranty', default=False,
