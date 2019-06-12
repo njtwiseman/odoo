@@ -17,9 +17,9 @@ class Vehicle(models.Model):
     vin          = fields.Char()#Many2one('vehicle.vin')
     licensePlate = fields.Char()#Many2one('vehicle.plate')
     ymm = fields.Many2one('vehicle.ymm')
-    make = fields.Char()
-    model = fields.Char()
-    year = fields.Char()
+    make = fields.Char(related='ymm.make')
+    model = fields.Char(related='ymm.model')
+    year = fields.Char(related='ymm.year')
 
 
     def _gen_id(self):
@@ -59,60 +59,38 @@ class Vehicle(models.Model):
 class VehicleVin(models.Model):
     _name = 'vehicle.vin'
     _description = 'Vehicle Identification Number'
-    _rec_name = 'vin'
-#    _parent_store = True
-#    parent_path = fields.Char(index=True, default="vehicle.vehicle")
-    vin = fields.Char(string='VIN')
-
-#    year = fields.Many2one('vehicle.year')
+    id = fields.Char(string='VIN')
 
 class VehiclePlate(models.Model):
     _name = 'vehicle.plate'
     _description = 'Vehicle License Plate'
-    _rec_name = 'licensePlate'
-    licensePlate = fields.Char(string='Plate')
-#    year = fields.Many2one('vehicle.year')
-
+    id = fields.Char(string='Plate')
 
 class YMM(models.Model):
     _name = 'vehicle.ymm'
     _description = "the Year Make and Model"
     vehicle_id = fields.One2many('vehicle.vehicle', 'ymm')
-    name = fields.Char()
-    year = fields.Many2one('vehicle.year')
-    make = fields.Char()#Many2one('vehicle.make')
+    name = fields.Char(compute="_combine_name")
+    year  = fields.Char()#Many2one('vehicle.year')
+    make  = fields.Char()#Many2one('vehicle.make')
     model = fields.Char()#Many2one('vehicle.model')
 
-
+    def _combine_name(self):
+        for rec in self:
+            rec.name = f"{rec.year} {rec.make} {rec.model}"
 
 class VehicleYear(models.Model):
     _name = 'vehicle.year'
     _description = 'Vehicle Model Year  - not a build date'
-    _rec_name = 'year'
-    year = fields.Char(string="Year")
-    make = fields.Many2many('vehicle.make')
-
+    id = fields.Char(string="Year")
 
 class VehicleMake(models.Model):
     _name = 'vehicle.make'
-    _rec_name = 'make'
-#    _parent_store = True
-#    _parent_name = 'year'
-#    parent_path = fields.Char(index=True)
-    year = fields.Many2many('vehicle.year')#One2many('vehicle.year','year',)
-    make = fields.Char(string="Make")
-    model = fields.Char()#Many2one('vehicle.model')
+    id = fields.Char(string="Make")
 
 class VehicleModel(models.Model):
     _name = 'vehicle.model'
-    _rec_name = 'model'
-#    _parent_store = True
-#    _parent_name = 'make'
-#    parent_path = fields.Char(index=True)
-    make = fields.Char()#One2many('vehicle.make', 'model')
-    model = fields.Char(string="Model")
-
-
+    id = fields.Char(string="Model")
     image_medium = fields.Binary(string='image', store=True, attachment=True)
 
 
