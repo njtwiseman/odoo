@@ -1,0 +1,17 @@
+ #!/bin/bash
+ git clone --no-hardlinks https://gitlab.com/njtwiseman/nickdoo.git auto_service_shop
+ cd auto_service_shop
+ git filter-branch --subdirectory-filter /home/nick/Repos/addons/auto_service_shop HEAD -- --all
+ git reset --hard
+ git gc --aggressive
+ git prune
+ git remote rm origin
+ git remote add https://gitlab.com/njtwiseman/auto_service_shop
+ cd /home/nick/shopMgmt/odoo
+ git rm /home/nick/shopMgmt/odoo/addons/auto_service_shop
+ git commit -m "Removing the folders that are now repositories"
+ git submodule add https://gitlab.com/njtwiseman/auto_service_shop /home/nick/shopMgmt/odoo/addons/auto_service_shop/
+ git submodule init
+ git submoduel update
+ git add .gitmodules sub/module/path
+ git commit -m "Added in submodules for removed folders"
