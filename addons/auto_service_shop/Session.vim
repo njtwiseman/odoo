@@ -38,9 +38,9 @@ normal! zt
 1
 normal! 0
 tabnext 1
-badd +45 __manifest__.py
-badd +9 models/vehicle.py
+badd +18 models/vehicle.py
 badd +0 NERD_tree_1
+badd +45 __manifest__.py
 badd +21 security/ir.model.access.csv
 badd +1 models/service_ticket.py
 badd +83 models/auto_service.py
