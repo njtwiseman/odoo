@@ -1,10 +1,17 @@
 <odoo>
   <data>
-    <record model="ir.actions.act_window" id="vehicle.vehicle_list">
+
+    <record id="action_vehicle_view" model="ir.actions.act_window">
       <field name="name">Vehicles</field>
       <field name="res_model">vehicle.vehicle</field>
       <field name="view_type">form</field>
-      <field name="view_mode">tree,form,graph</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+            Click 'Create' to make a new vehicle.
+        </p>
+      </field>
     </record>
+
   </data>
 </odoo>

@@ -12,10 +12,6 @@
       </field>
     </record>
 
-    <menuitem name="Vehicles" id="vehicle_menu_root"/>
-    <menuitem name="Year" id="vehicle_year" parent="vehicle_menu_root"/>
-    <menuitem name="Make" id="vehicle_make" parent="vehicle_menu_root"/>
-    <menuitem name="Model" id="vehicle_model" parent="vehicle_menu_root"/>
 
   </data>
 </odoo>

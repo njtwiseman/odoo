@@ -1,26 +1,24 @@
-from uuid import uuid1 
-
-from odoo import models, api, fields, _
+from uuid import uuid1
+from odoo import models, api, fields
 
 
 class Vehicle(models.Model):
     _name = 'vehicle.vehicle'
-    vehicle_id = fields.Char(compute='_gen_id', store=True)
     _rec_name = 'vehicle_id'
-
-    # identifying info
-    vin6                    = fields.Char(compute="_compute_vin_6")
-    vin8                    = fields.Char(compute="_compute_vin_8")
-    stockNo = fields.Char()
-
-    # relational fields
-    vin          = fields.Char()#Many2one('vehicle.vin')
-    licensePlate = fields.Char()#Many2one('vehicle.plate')
-    ymm = fields.Many2one('vehicle.ymm')
+    vehicle_id = fields.Char()
     make = fields.Char(related='ymm.make')
     model = fields.Char(related='ymm.model')
     year = fields.Char(related='ymm.year')
 
+    # identifying info
+    vin6 = fields.Char(compute="_compute_vin_6")
+    vin8 = fields.Char(compute="_compute_vin_8")
+    stockNo = fields.Char()
+
+    # relational fields
+    vin = fields.Char()  # Many2one('vehicle.vin')
+    licensePlate = fields.Char()  # Many2one('vehicle.plate')
+    ymm = fields.Many2one('vehicle.ymm')
 
     def _gen_id(self):
         for rec in self:
@@ -39,58 +37,65 @@ class Vehicle(models.Model):
     @api.multi
     def findVehicleInfo(self):
         """ RecordSet => None
-
             Split into vinSearch and plateSearch
         """
         for rec in self:
             print(self.env['oreilly.vehicle'].search(
-                    [
-                        ('licensePlate', '!=', ''),
-                        '|',
-                        ('vin', '!=', ''),
-                        '&',
-                        ('licensePlate','=',rec.licensePlate),
-                        '|',
-                        ('vin', '=', rec.vin),
-                        ]
-                    )
-                    )
+                [
+                    ('licensePlate', '!=', ''),
+                    '|',
+                    ('vin', '!=', ''),
+                    '&',
+                    ('licensePlate', '=', rec.licensePlate),
+                    '|',
+                    ('vin', '=', rec.vin),
+                ]
+            ))
+
 
 class VehicleVin(models.Model):
     _name = 'vehicle.vin'
     _description = 'Vehicle Identification Number'
-    id = fields.Char(string='VIN')
+    name = fields.Char(string='VIN')
+
 
 class VehiclePlate(models.Model):
     _name = 'vehicle.plate'
     _description = 'Vehicle License Plate'
-    id = fields.Char(string='Plate')
+    name = fields.Char(string='Plate')
+
 
 class YMM(models.Model):
     _name = 'vehicle.ymm'
     _description = "the Year Make and Model"
+    name = fields.Char()
     vehicle_id = fields.One2many('vehicle.vehicle', 'ymm')
     name = fields.Char(compute="_combine_name")
-    year  = fields.Char()#Many2one('vehicle.year')
-    make  = fields.Char()#Many2one('vehicle.make')
-    model = fields.Char()#Many2one('vehicle.model')
+    year = fields.Char()  # Many2one('vehicle.year')
+    rel_year = fields.Many2many('ymm.year')
+    make = fields.Char()  # Many2one('vehicle.make')
+    model = fields.Char()  # Many2one('vehicle.model')
 
     def _combine_name(self):
         for rec in self:
             rec.name = f"{rec.year} {rec.make} {rec.model}"
 
+
 class VehicleYear(models.Model):
-    _name = 'vehicle.year'
+    _name = 'ymm.year'
     _description = 'Vehicle Model Year  - not a build date'
     id = fields.Char(string="Year")
+    rel_ymm = fields.Many2many('vehicle.ymm', 'id', 'id')
+
 
 class VehicleMake(models.Model):
-    _name = 'vehicle.make'
+    _name = 'ymm.make'
+    _description = 'Vehicle Manufacturer'
     id = fields.Char(string="Make")
 
+
 class VehicleModel(models.Model):
-    _name = 'vehicle.model'
+    _name = 'ymm.model'
+    _description = 'Manufacturer\'s Model Name'
     id = fields.Char(string="Model")
     image_medium = fields.Binary(string='image', store=True, attachment=True)
-
-

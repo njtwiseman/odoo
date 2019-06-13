@@ -11,10 +11,7 @@ class AutoServiceShop(models.Model):
     name = fields.Char(string='Service Number', copy=False, default="New")
 
     # customer info
-    person_name = fields.Many2one('res.partner',
-            string="Customer Name",
-            required=True,
-            domain="[('customer','=','True')]")
+    person_name = fields.Many2one('res.partner', string="Customer Name", required=True, domain="[('customer','=','True')]")
     contact_no = fields.Char(related='person_name.mobile', string="Contact Number")
     email_id = fields.Char(related='person_name.email', string="Email")
     street = fields.Char(related='person_name.street', string="Street")
@@ -25,11 +22,10 @@ class AutoServiceShop(models.Model):
     country_id = fields.Many2one(related='person_name.country_id', string="Country")
     street2 = fields.Char(related='person_name.street2', string="Address")
 
-
     # vehicle info
     vehicle = fields.Many2one('vehicle.vehicle')
-    make = fields.Char()#related='vehicle.make.make', string="Make", store=True)
-    model = fields.Char()#related='vehicle.model.model', string="Model")
+    make = fields.Char()# related='vehicle.make.make', string="Make", store=True)
+    model = fields.Char()# related='vehicle.model.model', string="Model")
 
     is_in_warranty = fields.Boolean(
             'In Warranty', default=False,
@@ -88,7 +84,7 @@ class AutoServiceShop(models.Model):
 
     @api.onchange('return_date')
     def check_date(self):
-        if self.return_date != False:
+        if self.return_date is not False:
             return_date_string = datetime.strptime(str(self.return_date), "%Y-%m-%d")
             request_date_string = datetime.strptime(str(self.date_request), "%Y-%m-%d")
             if return_date_string < request_date_string:
@@ -297,7 +293,6 @@ class AutoServiceShop(models.Model):
                 complaint_text = complaint.complaint_type + ", " + complaint_text
         data = {
                 'ids': self.ids,
-                'model': self._name,
                 'date_today': date_today,
                 'date_request': self.date_request,
                 'date_return': self.return_date,
@@ -308,8 +303,6 @@ class AutoServiceShop(models.Model):
                 'technician': self.technicion_name.name,
                 'complaint_types': complaint_text,
                 'complaint_description': description_text,
-                'make': self.make,
-                'model': self.model,
 
                 }
         return self.env.ref('auto_service_shop.auto_service_ticket').report_action(self, data=data)
