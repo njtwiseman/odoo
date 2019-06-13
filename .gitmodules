@@ -4,3 +4,6 @@
 [submodule "addons/oreilly"]
 	path = addons/oreilly
 	url = https://gitlab.com/njtwiseman/oreilly_addon.git
+[submodule "addons/auto_source_ops"]
+	path = addons/auto_source_ops
+	url = https://gitlab.com/njtwiseman/auto_source_addon.git
