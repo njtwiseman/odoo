@@ -1,0 +1,13 @@
+<odoo>
+  <data>
+
+    <menuitem id="auto_service_main_menu" name="Service Bay" web_icon="auto_service_shop,static/img/car.png" sequence="20"/>
+
+  <menuitem id="auto_service_shop_menu" parent="auto_service_main_menu" name="TireShop" sequence="20"/>
+  
+  <menuitem  id="auto_service_shop_menu1" parent="auto_service_shop_menu"
+    name="Vehicles" action="action_vehicle_view" sequence="1"/>
+
+
+</data>
+</odoo>

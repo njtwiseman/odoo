@@ -1,5 +1,6 @@
 <odoo>
   <data>
+
     <record model="ir.ui.view" id="vehicle_vehicle_list">
       <field name="name">vehicle list</field>
       <field name="model">vehicle.vehicle</field>
@@ -7,11 +8,28 @@
         <tree>
           <field name="vin"/>
           <field name="licensePlate"/>
-          <field name="ymm"/>
+          <field name="year"/>
+          <field name="make"/>
+          <field name="model"/>
         </tree>
       </field>
     </record>
 
-
-  </data>
-</odoo>
+    <record model="ir.ui.view" id="vehicle_vehicle_form">
+      <field name="name">vehicle form</field>
+      <field name="model">vehicle.vehicle</field>
+      <field name="arch" type="xml">
+        <form>
+          <group string="Customer">
+            <field string="Name" name="customer_id" 
+              placeholder="Customer Information..."/>
+          </group>
+            <group string="Vehicle">
+              <field name="ymm" string="Year, Make, Model"
+                placeholder="Vehicle Information..."/>
+            </group>
+          </form>
+        </field>
+      </record>
+    </data>
+  </odoo>

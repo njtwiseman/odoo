@@ -6,6 +6,7 @@ class Vehicle(models.Model):
     _name = 'vehicle.vehicle'
     _rec_name = 'vehicle_id'
     vehicle_id = fields.Char()
+    customer_id = fields.Many2one('res.partner')
     make = fields.Char(related='ymm.make')
     model = fields.Char(related='ymm.model')
     year = fields.Char(related='ymm.year')
@@ -56,25 +57,27 @@ class Vehicle(models.Model):
 class VehicleVin(models.Model):
     _name = 'vehicle.vin'
     _description = 'Vehicle Identification Number'
-    name = fields.Char(string='VIN')
+    id = fields.Char(string='VIN')
 
 
 class VehiclePlate(models.Model):
     _name = 'vehicle.plate'
     _description = 'Vehicle License Plate'
-    name = fields.Char(string='Plate')
+    id = fields.Char(string='Plate')
 
 
 class YMM(models.Model):
     _name = 'vehicle.ymm'
     _description = "the Year Make and Model"
-    name = fields.Char()
+    id = fields.Char()
     vehicle_id = fields.One2many('vehicle.vehicle', 'ymm')
     name = fields.Char(compute="_combine_name")
     year = fields.Char()  # Many2one('vehicle.year')
     rel_year = fields.Many2many('ymm.year')
     make = fields.Char()  # Many2one('vehicle.make')
+    rel_make = fields.Many2many('ymm.make')
     model = fields.Char()  # Many2one('vehicle.model')
+    rel_model = fields.Many2many('ymm.model')
 
     def _combine_name(self):
         for rec in self:
@@ -85,17 +88,19 @@ class VehicleYear(models.Model):
     _name = 'ymm.year'
     _description = 'Vehicle Model Year  - not a build date'
     id = fields.Char(string="Year")
-    rel_ymm = fields.Many2many('vehicle.ymm', 'id', 'id')
+    rel_ymm = fields.Many2many('vehicle.ymm')
 
 
 class VehicleMake(models.Model):
     _name = 'ymm.make'
     _description = 'Vehicle Manufacturer'
     id = fields.Char(string="Make")
+    rel_make = fields.Many2many('vehicle.ymm')
 
 
 class VehicleModel(models.Model):
     _name = 'ymm.model'
     _description = 'Manufacturer\'s Model Name'
     id = fields.Char(string="Model")
+    rel_make = fields.Many2many('vehicle.ymm')
     image_medium = fields.Binary(string='image', store=True, attachment=True)
