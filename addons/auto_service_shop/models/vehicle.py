@@ -12,28 +12,18 @@ class Vehicle(models.Model):
     year = fields.Char(related='ymm.year')
 
     # identifying info
-    vin6 = fields.Char(compute="_compute_vin_6")
-    vin8 = fields.Char(compute="_compute_vin_8")
     stockNo = fields.Char()
 
     # relational fields
-    vin = fields.Char()  # Many2one('vehicle.vin')
+    vin = fields.Many2one('vehicle.vin')
+    vin6 = fields.Char(related='vin.vin6')
+    vin8 = fields.Char(related='vin.vin8')
     licensePlate = fields.Char()  # Many2one('vehicle.plate')
     ymm = fields.Many2one('vehicle.ymm')
 
     def _gen_id(self):
         for rec in self:
             rec.vehicle_id = uuid1()
-
-    @api.depends('vin')
-    def _compute_vin_6(self):
-        for rec in self:
-            rec.vin6 = rec.vin[-6:] if rec.vin else None
-
-    @api.depends('vin')
-    def _compute_vin_8(self):
-        for rec in self:
-            rec.vin6 = rec.vin[-8:] if rec.vin else None
 
     @api.multi
     def findVehicleInfo(self):
@@ -58,6 +48,17 @@ class VehicleVin(models.Model):
     _name = 'vehicle.vin'
     _description = 'Vehicle Identification Number'
     id = fields.Char(string='VIN')
+    vehicle_id = fields.One2many('vehicle.vehicle', 'vin')
+    vin6 = fields.Char(compute="_compute_vin_6")
+    vin8 = fields.Char(compute="_compute_vin_8")
+    
+    def _compute_vin_6(self):
+        for rec in self:
+            rec.vin6 = rec.vin[-6:] if rec.vin else None
+
+    def _compute_vin_8(self):
+        for rec in self:
+            rec.vin6 = rec.vin[-8:] if rec.vin else None
 
 
 class VehiclePlate(models.Model):
