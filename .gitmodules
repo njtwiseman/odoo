@@ -7,3 +7,6 @@
 [submodule "addons/auto_source_ops"]
 	path = addons/auto_source_ops
 	url = https://gitlab.com/njtwiseman/auto_source_addon.git
+[submodule "addons/auto_service_shop"]
+	path = addons/auto_service_shop
+	url = https://gitlab.com/njtwiseman/auto_service_shop.git
